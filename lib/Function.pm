@@ -42,8 +42,8 @@ sub prototype_ok(\&$;$)
 
 	unless( $test )
 		{
-		$Test->ok(0, $name);
 		$Test->diag( "Subroutine has prototype [$actual]; expected [$prototype]" );
+		$Test->ok(0, $name);
 		}
 	else
 		{
@@ -67,7 +67,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
