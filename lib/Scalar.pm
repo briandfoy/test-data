@@ -65,7 +65,7 @@ sub defined_ok ($;$)
 	my $ok   = defined $_[0];
 	my $name = $_[1] || 'Scalar is defined';
 
-	$Test->ok( $ok );
+	$Test->ok( $ok, $name );
 
 	$Test->diag("Expected a defined value, got an undefined one\n", $name )
 		unless $ok;
@@ -79,10 +79,11 @@ Ok if the SCALAR is undefined.
 
 sub undef_ok ($;$)
 	{
+	my $name = $_[1] || 'Scalar is undefined';
+	
 	if( @_ > 0 )
 		{
 		my $ok   = not defined $_[0];
-	    my $name = $_[1] || 'Scalar is undefined';
 
 		$Test->ok( $ok, $name );
 
