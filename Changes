@@ -1,5 +1,9 @@
 # $Id$
 
+1.01 - Mon May 31 01:16:58 2004
+	* fixed array_once_ok, thanks to  Tom Heady <tom.heady@snapmedical.com>
+	* bumped the version past 1.01
+
 0.96 - Thu Apr 22 15:02:25 2004
 	* functions in Test::Data::Scalar now return the result of ok()
 	rather than something else.  Thanks to Andy Lester for spotting
