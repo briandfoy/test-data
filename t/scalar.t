@@ -1,6 +1,6 @@
 # $Id$
 
-use Test::Builder::Tester tests => 47;
+use Test::Builder::Tester tests => 53;
 use Test::More;
 use Test::Data qw(Scalar);
 
@@ -36,6 +36,34 @@ test_diag("    Failed test ($0 at line " . line_num(+2) . ")",
 	"Expected a defined value, got an undefined one");
 defined_ok( undef );
 test_test('defined_ok catches undef');
+
+{
+my $test;
+test_out( map { "ok $_" } 1 .. 2 );
+undef_ok( undef );
+undef_ok( $test );
+test_test('undef_ok');
+}
+
+foreach my $value ( 'foo', '', 0, '0' )
+	{
+	my $test = 'foo';
+	test_out( 'not ok 1' );
+	test_diag("    Failed test ($0 at line " . line_num(+2) . ")",
+		"Expected an undefined value, got a defined one");
+	undef_ok( 'foo' );
+	test_test('undef_ok catches defined value');
+	}
+
+TODO: {
+local $TODO = "This doesn't work yet";
+
+test_out('not ok 1');
+test_diag("    Failed test ($0 at line " . line_num(+2) . ")",
+	"Expected an undefined value, but got no arguments");
+undef_ok( () );
+test_test('undef_ok catches empty list');
+}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
