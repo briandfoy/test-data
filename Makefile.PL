@@ -25,7 +25,7 @@ WriteMakefile
  			'Test::Manifest'        => '0.9',
   			'Test::More'            => '0',
 			'Test::Pod'             => '0',
- 			'Test::Prereq'          => '0.14',
+ 			'Test::Prereq'          => '0.18',
  			},
  			
         'PM'        => 
