@@ -1,5 +1,6 @@
 MANIFEST
 Makefile.PL
+lib/Data.pm
 lib/Array.pm
 lib/Hash.pm
 lib/Scalar.pm
