@@ -1,27 +1,71 @@
 # $Id$
 
-use Test::More tests => 11;
+use Test::More;
 
 require Test::Data;
 
 Test::Data->import( qw(Scalar Array Hash Function) );
 
+my @scalar_functions = qw( blessed_ok defined_ok dualvar_ok greater_than 
+length_ok less_than maxlength_ok minlength_ok number_ok readonly_ok
+ref_ok ref_type_ok strong_ok tainted_ok untainted_ok weak_ok undef_ok
+number_between_ok string_between_ok );
+
+my @hash_functions = qw(exists_ok not_exists_ok hash_value_defined_ok
+hash_value_undef_ok hash_value_true_ok hash_value_false_ok);
+
+my @array_functions = qw(array_any_ok array_none_ok array_once_ok 
+	array_multiple_ok array_max_ok array_min_ok array_maxstr_ok
+	array_minstr_ok array_sum_ok array_length_ok array_empty_ok
+	array_sortedstr_ascending_ok array_sortedstr_descending_ok
+	array_sorted_ascending_ok array_sorted_descending_ok );
+	
+my @function_functions = qw(prototype_ok);
+
+plan tests => @scalar_functions + @hash_functions + 
+	@array_functions + @function_functions;
+
 # Scalar
-ok( defined &number_ok,      "Scalar package exported number_ok"      );
+test_functions( "Scalar", @scalar_functions );
 
 # Array
-ok( defined &array_any_ok,      "Array package exported is_any_ok"       );
-ok( defined &array_none_ok,     "Array package exported is_none_ok"      );
-ok( defined &array_once_ok,     "Array package exported is_once_ok"      );
-ok( defined &array_multiple_ok, "Array package exported is_multiple_ok"  );
-ok( defined &array_max_ok,      "Array package exported is_maximum_ok"   );
-ok( defined &array_min_ok,      "Array package exported is_minimum_ok"   );
+test_functions( "Array", @array_functions );
 
 # Hashes
-ok( defined &exists_ok,      "Hash package exported exists_ok"        );
-ok( defined &defined_ok,     "Hash package exported defined_ok"       );
-ok( defined &hash_value_true_ok,     "Hash package exported defined_ok"       );
+test_functions( "Hash", @hash_functions );
 
 # Functions
-ok( defined &prototype_ok,   "Function package exported prototype_ok" );
+test_functions( "Function", @function_functions );
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+sub test_functions
+	{
+	my( $package, @function_names ) = @_;
+	
+	foreach my $function ( @function_names )
+		{
+		check_function( $function, $package );
+		}
+	}
+	
+sub check_function
+	{
+	my( $function, $package ) = @_;
+	
+	my $ok = sub_defined( $function );
+	
+	unless( $ok )
+		{
+		diag( "\tFunction [$function] not defined in main::" );
+		$a = sub_defined( "Test\::Data\::$package\::$function" );
+		diag( "\tFunction is defined in $package, though" ) if $a;
+		}
+		
+	ok( $ok, "$package package exported $function" );
+	}
+	
+sub sub_defined
+	{
+	my $function = shift;
+	eval( "defined \&$function" );
+	}
