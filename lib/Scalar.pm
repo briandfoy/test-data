@@ -372,7 +372,7 @@ sub ref_type_ok($$;$)
 	$Test->diag("Expected references to match\n\tGot $ref1\n\t" .
 		"Expected $ref2\n")	unless $ok;
 
-	ref $_[0] eq ref $_[1] ? $Test->ok( 1 ) : $Test->ok( 0, $name );
+	ref $_[0] eq ref $_[1] ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 	
 =item strong_ok( SCALAR )
