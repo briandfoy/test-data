@@ -1,17 +1,9 @@
 # $Id$
-BEGIN {
-	use File::Find::Rule;
-	@classes = map { my $x = $_;
-		$x =~ s|^blib/lib/||;
-		$x =~ s|/|::|g;
-		$x =~ s|\.pm$||;
-		$x;
-		} File::Find::Rule->file()->name( '*.pm' )->in( 'blib/lib' );
-	}
 
-use Test::More tests => scalar @classes;
-	
-foreach my $class ( @classes )
-	{
-	print "bail out! Could not compile $class" unless use_ok( $class );
-	}
+use Test::More tests => 5;
+
+BEGIN { use_ok( "Test::Data" ); }
+BEGIN { use_ok( "Test::Data::Array" ); }
+BEGIN { use_ok( "Test::Data::Function" ); }
+BEGIN { use_ok( "Test::Data::Hash" ); }
+BEGIN { use_ok( "Test::Data::Scalar" ); }
