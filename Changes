@@ -1,5 +1,15 @@
 # $Id$
 
+0.91 - Fri Dec 20 16:48:58 2002
+	* functions from Scalar::Util need full package specification
+	since i do not import them.  this fixes all of the functions
+	based on Scalar::Util.
+
+	* removed dualvar test.  it does not work, and i need to figure
+	out how to make it work
+
+	* cleaned up the Pod which had some extra whitespace in places
+
 0.9 Mon Nov  4 19:41:52 CST 2002
 	+ fixed some calls to ok() that were missing name parameter
 	+ man pages install correctly
