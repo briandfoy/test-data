@@ -1,5 +1,9 @@
 # $Id$
 
+0.95 - Sat Feb 28 08:09:48 2004
+	* added four functions to Test::Data::Array to check if an array 
+	is sorted (up or down, string or number)
+
 0.94 - Mon Dec  1 20:57:11 CST 2003
 	* No changes.  Tests should run on Windows now.
 
