@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.7;
+$VERSION = 0.8;
 
 =head1 NAME
 
@@ -49,7 +49,7 @@ sub import
 	
 sub VERSION { return $VERSION }
 
-=head2 FUNCTIONS
+=head2 Functions
 
 Plug-in modules define functions for each data type.  See the
 appropriate module.
@@ -61,6 +61,16 @@ L<Test::Data::Array>,
 L<Test::Data::Hash>, 
 L<Test::Data::Function>, 
 L<Test::Builder>
+
+=head1 SOURCE AVAILABILITY
+
+This source is part of a SourceForge project which always has the
+latest sources in CVS, as well as all of the previous releases.
+
+	https://sourceforge.net/projects/brian-d-foy/
+	
+If, for some reason, I disappear from the world, one of the other
+members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 

@@ -69,7 +69,7 @@ test_test('undef_ok catches empty list');
 foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 	{
 	test_out('ok 1');
-	greater_than( @$pair );
+	greater_than( $pair->[0], $pair->[1] );
 	test_test('greater_than');
 	
 	test_out('not ok 1');
@@ -78,11 +78,11 @@ foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 		"Number is greater than the bound.",
 		"\tExpected a number less than [$$pair[1]]",
 		"\tGot [$$pair[0]]"); 
-	less_than( @$pair );
+	less_than( $pair->[0], $pair->[1] );
 	test_test('less than catches out-of-bonds');
 	
 	test_out('ok 1');
-	less_than( reverse @$pair );
+	less_than( $pair->[1], $pair->[0] );
 	test_test('less_than');
 
 	test_out('not ok 1');
@@ -91,7 +91,7 @@ foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 		"Number is less than the bound.",
 		"\tExpected a number greater than [$$pair[0]]",
 		"\tGot [$$pair[1]]"); 
-	greater_than( reverse @$pair );
+	greater_than( $pair->[1], $pair->[0] );
 	test_test('greater_than catches out-of-bonds');
 	}
 

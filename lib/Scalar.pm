@@ -1,8 +1,9 @@
+# $Id$
 package Test::Data::Scalar;
 use strict;
 
 use base qw(Exporter);
-use vars qw(@EXPORT);
+use vars qw(@EXPORT $VERSION);
 
 use Scalar::Util;
 use Test::Builder;
@@ -14,6 +15,7 @@ use Test::Builder;
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
+$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /g;
 
 my $Test = Test::Builder->new();
 
@@ -23,14 +25,14 @@ Test::Data::Scalar -- test functions for scalar variables
 
 =head1 SYNOPSIS
 
-use Test::Data qw(Scalar);
+	use Test::Data qw(Scalar);
 
 =head1 DESCRIPTION
 
 This modules provides a collection of test utilities for
 scalar variables.  Load the module through Test::Data.
 
-=head2 FUNCTIONS
+=head2 Functions
 
 =over 4
 
@@ -40,10 +42,11 @@ Ok if the SCALAR is a blessed reference.
 
 =cut
 
-sub blessed_ok($)
+sub blessed_ok ($;$)
 	{
-	my $ref =  ref $_[0];	
-	my $ok  = Scalar::Util::blessed($_[0]);
+	my $ref  = ref $_[0];
+	my $ok   = Scalar::Util::blessed($_[0]);
+	my $name = $_[1] || 'Scalar is blessed';
 	
 	$Test->ok( $ok );
 
@@ -57,9 +60,10 @@ Ok if the SCALAR is defined.
 
 =cut
 
-sub defined_ok($)
+sub defined_ok ($;$)
 	{
-	my $ok = defined $_[0];
+	my $ok   = defined $_[0];
+	my $name = $_[1] || 'Scalar is defined';
 
 	$Test->ok( $ok );
 
@@ -73,11 +77,12 @@ Ok if the SCALAR is undefined.
 
 =cut
 
-sub undef_ok($)
+sub undef_ok ($;$)
 	{
 	if( @_ > 0 )
 		{
-		my $ok = not defined $_[0];
+		my $ok   = not defined $_[0];
+	    my $name = $_[1] || 'Scalar is undefined';
 
 		$Test->ok( $ok );
 
@@ -98,9 +103,10 @@ Ok if the scalar is a dualvar.
 
 =cut
 
-sub dualvar_ok($)
+sub dualvar_ok ($;$)
 	{
-	my $ok = dualvar $_[0];
+	my $ok   = dualvar $_[0];
+	my $name = $_[1] || 'Scalar is a dualvar';
 
 	$Test->ok( $ok );
 
@@ -114,10 +120,11 @@ Ok if the SCALAR is numerically greater than BOUND.
 
 =cut
 
-sub greater_than
+sub greater_than ($$;$)
 	{
 	my $value = shift;
 	my $bound = shift;
+	my $name  = shift || 'Scalar is greater than bound';
 	
 	my $ok = $value > $bound;
 	
@@ -134,10 +141,11 @@ Ok if the length of SCALAR is LENGTH.
 
 =cut
 
-sub length_ok
+sub length_ok ($$;$)
 	{
 	my $string = shift;
 	my $length = shift;
+	my $name   = shift || 'Scalar has right length';
 	
 	my $actual = length $string;
 	my $ok = $length == $actual;
@@ -155,10 +163,11 @@ Ok if the SCALAR is numerically less than BOUND.
 
 =cut
 
-sub less_than
+sub less_than ($$;$)
 	{
 	my $value = shift;
 	my $bound = shift;
+	my $name  = shift || 'Scalar is less than bound';
 
 	my $ok = $value < $bound;
 
@@ -175,10 +184,11 @@ Ok is the length of SCALAR is less than or equal to LENGTH.
 
 =cut
 
-sub maxlength_ok($$)
+sub maxlength_ok($$;$)
 	{
 	my $string = shift;
 	my $length = shift;
+	my $name   = shift || 'Scalar length is less than bound';
 	
 	my $actual = length $string;
 	my $ok = $actual <= $length;
@@ -195,10 +205,11 @@ Ok is the length of SCALAR is greater than or equal to LENGTH.
 
 =cut
 
-sub minlength_ok($$)
+sub minlength_ok($$;$)
 	{
 	my $string = shift;
 	my $length = shift;
+	my $name   = shift || 'Scalar length is greater than bound';
 	
 	my $actual = length $string;
 	my $ok = $actual >= $length;
@@ -219,9 +230,10 @@ work.
 
 =cut
 
-sub number_ok($)
+sub number_ok($;$)
 	{
-	my $number   = shift;
+	my $number = shift;
+	my $name   = shift || 'Scalar is a number';
 	
 	$number =~ /\D/ ? $Test->ok(0) : $Test->ok(1);
 	}
@@ -237,11 +249,12 @@ may get unexpected results.
 
 =cut
 
-sub number_between_ok($$$)
+sub number_between_ok($$$;$)
 	{
 	my $number = shift;
 	my $lower  = shift;
 	my $upper  = shift;
+	my $name   = shift || 'Scalar is in numerical range';
 	
 	unless( defined $lower and defined $upper )
 		{
@@ -275,11 +288,12 @@ in LOWER and the string in UPPER, ASCII-betically.
 
 =cut
 
-sub string_between_ok($$$)
+sub string_between_ok($$$;$)
 	{
 	my $string = shift;
 	my $lower  = shift;
 	my $upper  = shift;
+	my $name   = shift || 'Scalar is in string range';
 	
 	unless( defined $lower and defined $upper )
 		{
@@ -313,9 +327,10 @@ Ok is the SCALAR is read-only.
 
 =cut
 
-sub readonly_ok($)
+sub readonly_ok($;$)
 	{
-	my $ok = not readonly $_[0];
+	my $ok   = not readonly $_[0];
+	my $name = $_[1] || 'Scalar is read-only';
 
 	$Test->ok( $ok );
 
@@ -329,9 +344,10 @@ Ok if the SCALAR is a reference.
 
 =cut
 
-sub ref_ok($)
+sub ref_ok($;$)
 	{
-	my $ok = ref $_[0];
+	my $ok   = ref $_[0];
+	my $name = $_[1] || 'Scalar is a reference';
 
 	$Test->ok( $ok );
 
@@ -345,11 +361,12 @@ Ok if REF1 is the same reference type as REF2.
 
 =cut
 
-sub ref_type_ok($$)
+sub ref_type_ok($$;$)
 	{
 	my $ref1 = ref $_[0];
 	my $ref2 = ref $_[1];
 	my $ok = $ref1 eq $ref2;
+	my $name = $_[2] || 'Scalar is right reference type';
 	
 	$Test->ok( $ok );
 	
@@ -365,9 +382,10 @@ Ok is the SCALAR is not a weak reference.
 
 =cut
 
-sub strong_ok($)
+sub strong_ok($;$)
 	{
-	my $ok = not Scalar::Util::isweak( $_[0] );
+	my $ok   = not Scalar::Util::isweak( $_[0] );
+	my $name = $_[1] || 'Scalar is not a weak reference';
 
 	$Test->ok( $ok );
 
@@ -385,9 +403,10 @@ should have a test to make sure it happens.)
 
 =cut
 
-sub tainted_ok($)
+sub tainted_ok($;$)
 	{
-	my $ok = tainted $_[0];
+	my $ok   = tainted $_[0];
+	my $name = $_[1] || 'Scalar is tainted';
 
 	$Test->ok( $ok );
 
@@ -401,9 +420,10 @@ Ok if the SCALAR is not tainted.
 
 =cut
 
-sub untainted_ok($)
+sub untainted_ok($;$)
 	{
 	my $ok = not tainted $_[0];
+	my $name = $_[1] || 'Scalar is not tainted';
 
 	$Test->ok( $ok );
 
@@ -417,10 +437,11 @@ Ok if the SCALAR is a weak reference.
 
 =cut
 
-sub weak_ok($)
+sub weak_ok($;$)
 	{
 	my $ok = Scalar::Util::isweak( $_[0] );
-	
+	my $name = $_[1] || 'Scalar is a weak reference';
+
 	$Test->ok( $ok );
 
 	$Test->diag("Expected weak reference, got stronge one\n")
@@ -440,8 +461,19 @@ sub weak_ok($)
 L<Scalar::Util>,
 L<Test::Data>,
 L<Test::Data::Array>,
+L<Test::Data::Function>,
 L<Test::Data::Hash>, 
 L<Test::Builder>
+
+=head1 SOURCE AVAILABILITY
+
+This source is part of a SourceForge project which always has the
+latest sources in CVS, as well as all of the previous releases.
+
+	https://sourceforge.net/projects/brian-d-foy/
+	
+If, for some reason, I disappear from the world, one of the other
+members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 

@@ -1,5 +1,9 @@
 # $Id$
 
+0.8 Wed Oct 23 13:35:22 CDT 2002
+	+ all functions can take optional name arguments
+	+ added not_exists_ok, hash_value_undef_ok, hash_value_false_ok
+
 0.7 Mon Sep 30 17:01:10 PDT 2002
 	+ added number_bewteen_ok, string_between_ok
 	+ added array_empty_ok, array_length_ok

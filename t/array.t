@@ -16,5 +16,5 @@ array_max_ok(  6, @array );
 array_min_ok(  3, @array );
 array_empty_ok( @empty );
 array_length_ok( @array, 3 );
-test_test();
+test_test('Array functions work');
 }

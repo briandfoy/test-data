@@ -1,17 +1,18 @@
 Changes
-MANIFEST
+MANIFEST			This list of files
+MANIFEST.SKIP
 Makefile.PL
-lib/Data.pm
 lib/Array.pm
+lib/Data.pm
+lib/Function.pm
 lib/Hash.pm
 lib/Scalar.pm
-lib/Function.pm
+t/array.t
+t/function.t
+t/hash.t
+t/import.t
 t/load.t
 t/pod.t
 t/prereq.t
-t/import.t
 t/scalar.t
-t/array.t
-t/hash.t
-t/function.t
 t/test_manifest

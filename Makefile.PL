@@ -1,10 +1,14 @@
 # $Id$
 use ExtUtils::MakeMaker;
 
-my $tests = do {
-	local @ARGV = qw(t/test_manifest);
-	my $data = join " ", map {chomp; "t/$_" } <>;
-	};
+sub ExtUtils::MM_Any::test_via_harness
+	   {
+	   my($self, $perl, $tests) = @_;
+
+	   return qq|\t$perl "-MTest::Manifest" | .
+				  qq|"-e" "run_t_manifest(\$(TEST_VERBOSE), '\$(INST_LIB)', | .
+				  qq|'\$(INST_ARCHLIB)')"\n|;
+	   }
 
 WriteMakefile
         (
@@ -18,9 +22,10 @@ WriteMakefile
  			'Scalar::Util'          => '0',
  			'Test::Builder'         => '0',
  			'Test::Builder::Tester' => '0',
+ 			'Test::Manifest'        => '0.9',
   			'Test::More'            => '0',
 			'Test::Pod'             => '0',
- 			'Test::Prereq'          => '0',
+ 			'Test::Prereq'          => '0.14',
  			},
  			
         'PM'        => 
@@ -32,7 +37,15 @@ WriteMakefile
             'lib/Function.pm' => '$(INST_LIBDIR)/Data/Function.pm',
           },
  
-		test   => { TESTS      => $tests },
-		depend => { 'Makefile' => 't/test_manifest' },
+         'MAN3PODS' =>
+        	{
+        	'lib/Data.pm'    => '$(INST_MAN3DIR)/Test::Data.3',
+        	'lib/Scalar.pm'  => '$(INST_MAN3DIR)/Test::Data::Scalar.3',
+        	'lib/Array.pm'   => '$(INST_MAN3DIR)/Test::Data::Array.3',
+        	'lib/Hash.pm'    => '$(INST_MAN3DIR)/Test::Data::Hash.3',
+         	'lib/Function.pm' => '$(INST_MAN3DIR)/Test::Data::Function.3',
+       	},
+
+		clean  => { FILES => 'Test-Data-*' },
         );
 
