@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.92;
+$VERSION = 0.93;
 
 =head1 NAME
 
