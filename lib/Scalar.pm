@@ -40,13 +40,13 @@ Ok if the SCALAR is a blessed reference.
 
 sub blessed_ok($)
 	{
-	my $ok  = blessed $_[0];
-	my $ref =  ref $_[0];
+	my $ref =  ref $_[0];	
+	my $ok  = Scalar::Util::blessed($_[0]);
 	
 	$Test->ok( $ok );
 
 	$Test->diag("Expected a blessed value, but didn't get it\n\t" .
-		"Reference type is [$ref]\n" ) unless $ok;
+		qq|Reference type is "$ref"\n| ) unless $ok;
 	}
 
 =item defined_ok( SCALAR )
@@ -87,7 +87,7 @@ Ok if the SCALAR is numerically greater than BOUND.
 
 =cut
 
-sub greater_than($$)
+sub greater_than
 	{
 	my $value = shift;
 	my $bound = shift;
@@ -107,16 +107,19 @@ Ok if the length of SCALAR is LENGTH.
 
 =cut
 
-sub length_ok($$$)
+sub length_ok
 	{
-	my $length = length $_[0];
-	my $ok = $length >= $_[1] and $length <= $_[2];
+	my $string = shift;
+	my $length = shift;
+	
+	my $actual = length $string;
+	my $ok = $length == $actual;
 	
 	$Test->ok( $ok );
 		
 	$Test->diag("Length of value not within bounds\n\t" .
-		"Expected between min=[$_[1]] and max=[$_[2]]\n\t" .
-		"Got $length\n") unless $ok;
+		"Expected length=[$length]\n\t" .
+		"Got [$actual]\n") unless $ok;
 	}
 	
 =item less_than( SCALAR, BOUND )
@@ -125,7 +128,7 @@ Ok if the SCALAR is numerically less than BOUND.
 
 =cut
 
-sub less_than($$)
+sub less_than
 	{
 	my $value = shift;
 	my $bound = shift;
@@ -147,13 +150,16 @@ Ok is the length of SCALAR is less than or equal to LENGTH.
 
 sub maxlength_ok($$)
 	{
-	my $length = length $_[0];
-	my $ok = $length <= $_[0];
+	my $string = shift;
+	my $length = shift;
+	
+	my $actual = length $string;
+	my $ok = $actual <= $length;
 	
 	$Test->ok( $ok );
 
 	$Test->diag("Length of value longer than expected\n\t" .
-		"Expected max=[$_[2]]\n\tGot $length\n") unless $ok;
+		"Expected max=[$length]\n\tGot [$actual]\n") unless $ok;
 	}
 
 =item minlength_ok( SCALAR, LENGTH )
@@ -164,13 +170,16 @@ Ok is the length of SCALAR is greater than or equal to LENGTH.
 
 sub minlength_ok($$)
 	{
-	my $length = length $_[0];
-	my $ok = $length >= $_[0];
+	my $string = shift;
+	my $length = shift;
+	
+	my $actual = length $string;
+	my $ok = $actual >= $length;
 
 	$Test->ok( $ok );
 
 	$Test->diag("Length of value shorter than expected\n\t" .
-		"Expected min=[$_[1]]\n\tGot $length\n") unless $ok;
+		"Expected min=[$length]\n\tGot [$actual]\n") unless $ok;
 	}
 	
 =item number_ok( SCALAR )
@@ -250,7 +259,7 @@ Ok is the SCALAR is not a weak reference.
 
 sub strong_ok($)
 	{
-	my $ok = not isweak $_[0];
+	my $ok = not Scalar::Util::isweak( $_[0] );
 
 	$Test->ok( $ok );
 
@@ -302,7 +311,7 @@ Ok if the SCALAR is a weak reference.
 
 sub weak_ok($)
 	{
-	my $ok = isweak $_[0];
+	my $ok = Scalar::Util::isweak( $_[0] );
 	
 	$Test->ok( $ok );
 
