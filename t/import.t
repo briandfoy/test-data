@@ -10,12 +10,12 @@ Test::Data->import( qw(Scalar Array Hash Function) );
 ok( defined &number_ok,      "Scalar package exported number_ok"      );
 
 # Array
-ok( defined &is_any_ok,      "Array package exported is_any_ok"       );
-ok( defined &is_none_ok,     "Array package exported is_none_ok"      );
-ok( defined &is_once_ok,     "Array package exported is_once_ok"      );
-ok( defined &is_multiple_ok, "Array package exported is_multiple_ok"  );
-ok( defined &is_maximum_ok,  "Array package exported is_maximum_ok"   );
-ok( defined &is_minimum_ok,  "Array package exported is_minimum_ok"   );
+ok( defined &array_any_ok,      "Array package exported is_any_ok"       );
+ok( defined &array_none_ok,     "Array package exported is_none_ok"      );
+ok( defined &array_once_ok,     "Array package exported is_once_ok"      );
+ok( defined &array_multiple_ok, "Array package exported is_multiple_ok"  );
+ok( defined &array_max_ok,      "Array package exported is_maximum_ok"   );
+ok( defined &array_min_ok,      "Array package exported is_minimum_ok"   );
 
 # Hashes
 ok( defined &exists_ok,      "Hash package exported exists_ok"        );
