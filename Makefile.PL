@@ -1,15 +1,6 @@
 # $Id$
 use ExtUtils::MakeMaker;
 
-sub ExtUtils::MM_Any::test_via_harness
-	   {
-	   my($self, $perl, $tests) = @_;
-
-	   return qq|\t$perl "-MTest::Manifest" | .
-				  qq|"-e" "run_t_manifest(\$(TEST_VERBOSE), '\$(INST_LIB)', | .
-				  qq|'\$(INST_ARCHLIB)')"\n|;
-	   }
-
 WriteMakefile
         (
         'NAME'           => 'Test::Data',
@@ -17,15 +8,11 @@ WriteMakefile
         'VERSION_FROM'   => 'lib/Data.pm',
         
  		'PREREQ_PM' => {
- 			'File::Find::Rule'      => '0',
  			'List::Util'            => '0',
  			'Scalar::Util'          => '0',
  			'Test::Builder'         => '0',
  			'Test::Builder::Tester' => '0',
- 			'Test::Manifest'        => '0.91',
   			'Test::More'            => '0',
-			'Test::Pod'             => '0.90',
- 			'Test::Prereq'          => '0.19',
  			},
  			
         'PM'        => 
