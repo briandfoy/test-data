@@ -32,7 +32,7 @@ hash variables.  Load the module through Test::Data.
 
 =item exists_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH exists.  The function
+Ok if the value for KEY in HASH exists.  The function
 does not create KEY in HASH.
 
 =cut
@@ -48,7 +48,7 @@ sub exists_ok($\%;$)
 
 =item not_exists_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH does not exist.  The function
+Ok if the value for KEY in HASH does not exist.  The function
 does not create KEY in HASH.
 
 =cut
@@ -64,7 +64,7 @@ sub not_exists_ok($\%;$)
 
 =item hash_value_defined_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH is defined.  The function
+Ok if the value for KEY in HASH is defined.  The function
 does not create KEY in HASH.
 
 =cut
@@ -80,7 +80,7 @@ sub hash_value_defined_ok($\%;$)
 
 =item hash_value_undef_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH is undefined.  The function
+Ok if the value for KEY in HASH is undefined.  The function
 does not create KEY in HASH.
 
 =cut
@@ -96,7 +96,7 @@ sub hash_value_undef_ok($\%;$)
 
 =item hash_value_true_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH is true.  The function
+Ok if the value for KEY in HASH is true.  The function
 does not create KEY in HASH.
 
 =cut
@@ -112,7 +112,7 @@ sub hash_value_true_ok($\%;$)
 
 =item hash_value_false_ok( KEY, HASH [, NAME] )
 
-Ok is the value for KEY in HASH is false.  The function
+Ok if the value for KEY in HASH is false.  The function
 does not create KEY in HASH.
 
 =cut
@@ -148,11 +148,11 @@ members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
-brian d foy, E<lt>bdfoy@cpan.orgE<gt>
+brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002, brian d foy, All Rights Reserved
+Copyright 2002-2004, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.

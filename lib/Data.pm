@@ -86,11 +86,11 @@ members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
-brian d foy, E<lt>bdfoy@cpan.orgE<gt>
+brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2003, brian d foy, All Rights Reserved
+Copyright 2002-2004, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.
