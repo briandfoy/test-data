@@ -5,7 +5,8 @@ use base qw(Exporter);
 use vars qw(@EXPORT);
 
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok 
-array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok );
+array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
+array_length_ok array_empty_ok );
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -192,6 +193,34 @@ sub array_sum_ok($\@)
 	my $actual = sum( @$array );
 	
 	$sum == $actual ? $Test->ok(1) : $Test->ok(0);
+	}
+
+=item array_empty_ok( ARRAY )
+
+Ok if the array contains no elements.
+
+=cut
+
+sub array_empty_ok(\@)
+	{
+	my $array = shift;
+	
+	$#$array == -1 ?  $Test->ok(1) : $Test->ok(0);
+	}
+
+
+=item array_empty_ok( ARRAY, LENGTH )
+
+Ok if the array contains LENGTH number of elements.
+
+=cut
+
+sub array_length_ok(\@$)
+	{
+	my $array  = shift;
+	my $length = shift;
+	
+	$#$array == $length - 1 ?  $Test->ok(1) : $Test->ok(0);
 	}
 	
 =back

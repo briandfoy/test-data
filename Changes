@@ -1,0 +1,5 @@
+# $Id$
+
+0.7 Mon Sep 30 17:01:10 PDT 2002
+	+ added number_bewteen_ok, string_between_ok
+	+ added array_empty_ok, array_length_ok

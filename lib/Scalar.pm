@@ -11,7 +11,8 @@ use Test::Builder;
 	blessed_ok defined_ok dualvar_ok greater_than length_ok 
 	less_than maxlength_ok minlength_ok number_ok 
 	readonly_ok ref_ok ref_type_ok strong_ok tainted_ok 
-	untainted_ok weak_ok undef_ok
+	untainted_ok weak_ok undef_ok number_between_ok
+	string_between_ok
 	);
 
 my $Test = Test::Builder->new();
@@ -225,6 +226,87 @@ sub number_ok($)
 	$number =~ /\D/ ? $Test->ok(0) : $Test->ok(1);
 	}
 
+=item number_between_ok( SCALAR, LOWER, UPPER )
+
+Ok if the number in SCALAR sorts between the number
+in LOWER and the number in UPPER, numerically.
+
+If you put something that isn't a number into UPPER or
+LOWER, Perl will try to make it into a number and you 
+may get unexpected results.
+
+=cut
+
+sub number_between_ok($$$)
+	{
+	my $number = shift;
+	my $lower  = shift;
+	my $upper  = shift;
+	
+	unless( defined $lower and defined $upper )
+		{
+		$Test->ok(0);
+		$Test->diag("You need to define LOWER and UPPER bounds " .
+			"to use number_between_ok" );
+		}
+	elsif( $upper < $lower )
+		{
+		$Test->ok(0);
+		$Test->diag( 
+			"Upper bound [$upper] is lower than lower bound [$lower]" );
+		}
+	elsif( $number >= $lower and $number <= $upper )
+		{
+		$Test->ok(1);
+		}
+	else
+		{
+		$Test->ok(0);
+		$Test->diag( "Number [$number] was not within bounds\n",
+			"\tExpected lower bound [$lower]\n",
+			"\tExpected upper bound [$upper]\n" );
+		}
+	}
+
+=item string_between_ok( SCALAR, LOWER, UPPER )
+
+Ok if the string in SCALAR sorts between the string
+in LOWER and the string in UPPER, ASCII-betically.
+
+=cut
+
+sub string_between_ok($$$)
+	{
+	my $string = shift;
+	my $lower  = shift;
+	my $upper  = shift;
+	
+	unless( defined $lower and defined $upper )
+		{
+		$Test->ok(0);
+		$Test->diag("You need to define LOWER and UPPER bounds " .
+			"to use string_between_ok" );
+		}
+	elsif( $upper lt $lower )
+		{
+		$Test->ok(0);
+		$Test->diag( 
+			"Upper bound [$upper] is lower than lower bound [$lower]" );
+		}
+	elsif( $string ge $lower and $string le $upper )
+		{
+		$Test->ok(1);
+		}
+	else
+		{
+		$Test->ok(0);
+		$Test->diag( "String [$string] was not within bounds\n",
+			"\tExpected lower bound [$lower]\n",
+			"\tExpected upper bound [$upper]\n" );
+		}
+	
+	}
+	
 =item readonly_ok( SCALAR )
 
 Ok is the SCALAR is read-only.

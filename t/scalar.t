@@ -1,6 +1,6 @@
 # $Id$
 
-use Test::Builder::Tester tests => 53;
+use Test::Builder::Tester tests => 57;
 use Test::More;
 use Test::Data qw(Scalar);
 
@@ -132,4 +132,37 @@ foreach my $value ( ( {}, [] ) )
 	strong_ok( $value );
 	}
 test_test('ref_ok, strong_ok');
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+test_out( map { "ok $_" } 1 .. 4 );
+number_between_ok( 5, 5, 6 );
+number_between_ok( 6, 5, 6 );
+number_between_ok( 5, 4, 6 );
+number_between_ok( 5.5, 5, 6 );
+test_test('number_between_ok');
+
+test_out( "not ok 1" );
+test_diag("    Failed test ($0 at line " . line_num(+4) . ")",
+	"Number [4] was not within bounds",
+	"\tExpected lower bound [5]",
+	"\tExpected upper bound [6]");
+number_between_ok( 4, 5, 6 );
+test_test('number_between_ok catches failures');
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+test_out( map { "ok $_" } 1 .. 5 );
+string_between_ok( 5, 5, 6 );
+string_between_ok( 6, 5, 6 );
+string_between_ok( 5, 4, 6 );
+string_between_ok( 'dino', 'barney', 'fred' );
+string_between_ok( 11, 1, 2 );
+test_test('string_between_ok');
+
+test_out( "not ok 1" );
+test_diag("    Failed test ($0 at line " . line_num(+4) . ")",
+	"String [wilma] was not within bounds",
+	"\tExpected lower bound [fred]",
+	"\tExpected upper bound [pebbles]");
+string_between_ok( 'wilma', 'fred', 'pebbles' );
+test_test('string_between_ok catches failures');
 

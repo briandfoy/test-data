@@ -1,20 +1,28 @@
 # $Id$
 use ExtUtils::MakeMaker;
 
-use Test::Manifest qw(get_t_files);
+my $tests = do {
+	local @ARGV = qw(t/test_manifest);
+	my $data = join " ", map {chomp; "t/$_" } <>;
+	};
 
 WriteMakefile
         (
-        'NAME'      => 'Test::Data',
-        'ABSTRACT'  => 'Check data type properties and values',
-        'VERSION'   => '0.5_04',
+        'NAME'           => 'Test::Data',
+        'ABSTRACT'       => 'Check data type properties and values',
+        'VERSION_FROM'   => 'lib/Data.pm',
+        
  		'PREREQ_PM' => {
- 			'Test::Pod'             => 0,
- 			'Test::Manifest'        => 0,
- 			'Test::Builder'         => 0,
- 			'Test::More'            => 0,
- 			'Test::Builder::Tester' => 0,
+ 			'File::Find::Rule'      => '0',
+ 			'List::Util'            => '0',
+ 			'Scalar::Util'          => '0',
+ 			'Test::Builder'         => '0',
+ 			'Test::Builder::Tester' => '0',
+  			'Test::More'            => '0',
+			'Test::Pod'             => '0',
+ 			'Test::Prereq'          => '0',
  			},
+ 			
         'PM'        => 
         	{
             'lib/Data.pm'     => '$(INST_LIBDIR)/Data.pm',
@@ -24,7 +32,7 @@ WriteMakefile
             'lib/Function.pm' => '$(INST_LIBDIR)/Data/Function.pm',
           },
  
- 		depend => { Makefile => 't/test_manifest' },
-        test   => { TESTS => scalar get_t_files() },
+		test   => { TESTS      => $tests },
+		depend => { 'Makefile' => 't/test_manifest' },
         );
 

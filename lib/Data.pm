@@ -1,10 +1,15 @@
+# $Id$
 package Test::Data;
 use strict;
+
+use vars qw($VERSION);
 
 use Carp qw(carp);
 
 use Test::Builder;
+
 my $Test = Test::Builder->new();
+$VERSION = 0.7;
 
 =head1 NAME
 
@@ -42,6 +47,8 @@ sub import
 		
 	}
 	
+sub VERSION { return $VERSION }
+
 =head2 FUNCTIONS
 
 Plug-in modules define functions for each data type.  See the
@@ -52,6 +59,7 @@ appropriate module.
 L<Test::Data::Scalar>,
 L<Test::Data::Array>,
 L<Test::Data::Hash>, 
+L<Test::Data::Function>, 
 L<Test::Builder>
 
 =head1 AUTHOR
