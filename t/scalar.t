@@ -1,6 +1,6 @@
 # $Id$
 
-use Test::Builder::Tester tests => noplan;
+use Test::Builder::Tester tests => 47;
 use Test::More;
 use Test::Data qw(Scalar);
 
