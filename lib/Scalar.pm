@@ -15,7 +15,7 @@ use Test::Builder;
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
 
 my $Test = Test::Builder->new();
 

@@ -1,5 +1,11 @@
 # $Id$
 
+0.92 
+	* Fixed incorrect $VERSION in each package.
+
+	* Removed requirements on Test::Manifest and Test::Prereq.
+	  Test::Pod can get used on the install, but it's OK if not.
+
 0.91 - Fri Dec 20 16:48:58 2002
 	* functions from Scalar::Util need full package specification
 	since i do not import them.  this fixes all of the functions

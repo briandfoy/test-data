@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();

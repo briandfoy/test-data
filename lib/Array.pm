@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
 array_length_ok array_empty_ok );
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
