@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.9;
+$VERSION = 0.91;
 
 =head1 NAME
 
@@ -21,7 +21,7 @@ use Test::Data qw(Scalar Array Hash Function);
 
 =head1 DESCRIPTION
 
-Test::Data provides utility functions to check properties 
+Test::Data provides utility functions to check properties
 and values of data and variables.
 
 =cut
@@ -41,12 +41,12 @@ sub import
 			{
 			carp "Could not require Test::Data::$package: $@";
 			}
-			
+
 		$full_package->export($caller);
 		}
-		
+
 	}
-	
+
 sub VERSION { return $VERSION }
 
 =head2 Functions
@@ -58,8 +58,8 @@ appropriate module.
 
 L<Test::Data::Scalar>,
 L<Test::Data::Array>,
-L<Test::Data::Hash>, 
-L<Test::Data::Function>, 
+L<Test::Data::Hash>,
+L<Test::Data::Function>,
 L<Test::Builder>
 
 =head1 SOURCE AVAILABILITY
@@ -68,7 +68,7 @@ This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
 	https://sourceforge.net/projects/brian-d-foy/
-	
+
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
 

@@ -5,7 +5,7 @@ use strict;
 use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
-@EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok 
+@EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
 array_length_ok array_empty_ok );
 $VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /g;
@@ -40,17 +40,17 @@ sub array_any_ok($\@;$)
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array contains item';
-	
+
 	foreach my $try ( @$array )
 		{
 		next unless $try eq $element;
 		$Test->ok( 1, $name );
 		return;
 		}
-		
+
 	$Test->ok( 0, $name );
 	}
-	
+
 =item array_none_ok( ITEM, ARRAY [, NAME] )
 
 Ok is no element of ARRAY is ITEM.
@@ -69,7 +69,7 @@ sub array_none_ok($\@;$)
 		$Test->ok( 0, $name );
 		return;
 		}
-	
+
 	$Test->ok( 1, $name );
 	}
 
@@ -90,10 +90,10 @@ sub array_once_ok($\@;$)
 		{
 		$seen{$_}++;
 		}
-		
+
 	$seen{$_} = 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
-	
+
 =item array_multiple_ok( ITEM, ARRAY [, NAME] )
 
 Ok if more than one element of ARRAY is ITEM.
@@ -105,13 +105,13 @@ sub array_multiple_ok($\@;$)
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array contains item at least once';
-	
+
 	my %seen = ();
 	foreach my $item ( @$array )
 		{
 		$seen{$_}++;
 		}
-		
+
 	$seen{$_} > 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -127,9 +127,9 @@ sub array_max_ok($\@;$)
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array maximum is okay';
-	
+
 	my $actual = max( @$array );
-		
+
 	$actual <= $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -145,12 +145,12 @@ sub array_min_ok($\@;$)
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array minimum is okay';
-	
+
 	my $actual = min( @$array );
-		
+
 	$actual >= $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
-	
+
 =item array_maxstr_ok( ITEM, ARRAY [, NAME] )
 
 Ok is all elements of ARRAY are asciibetically less than
@@ -163,9 +163,9 @@ sub array_maxstr_ok($\@;$)
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array maximum string is okay';
-	
+
 	my $actual = maxstr( @$array );
-		
+
 	$actual ge $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -181,9 +181,9 @@ sub array_minstr_ok($\@;$)
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array minimum string is okay';
-	
+
 	my $actual = minstr( @$array );
-		
+
 	$actual le $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -198,9 +198,9 @@ sub array_sum_ok($\@;$)
 	my $sum    = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array sum is correct';
-	
+
 	my $actual = sum( @$array );
-	
+
 	$sum == $actual ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -214,7 +214,7 @@ sub array_empty_ok(\@;$)
 	{
 	my $array = shift;
 	my $name  = shift || 'Array is empty';
-	
+
 	$#$array == -1 ?  $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
@@ -230,10 +230,10 @@ sub array_length_ok(\@$;$)
 	my $array  = shift;
 	my $length = shift;
 	my $name   = shift || 'Array length is correct';
-	
+
 	$#$array == $length - 1 ?  $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
-	
+
 =back
 
 =head1 SEE ALSO
@@ -241,7 +241,7 @@ sub array_length_ok(\@$;$)
 L<Test::Data>,
 L<Test::Data::Scalar>,
 L<Test::Data::Function>,
-L<Test::Data::Hash>, 
+L<Test::Data::Hash>,
 L<Test::Builder>
 
 =head1 SOURCE AVAILABILITY
@@ -250,7 +250,7 @@ This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
 	https://sourceforge.net/projects/brian-d-foy/
-	
+
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
 
