@@ -1,5 +1,8 @@
 # $Id$
 
+next
+	* pod.t uses new Test::Pod technology.
+
 0.92 - Sun May 11, 2003 21:26:00 2003 
 	* Fixed hash_value_false_ok(), which was never defined.
 
