@@ -36,6 +36,6 @@ test_out(
     "ok 9 - Array length is correct",
 );
 
-test_err( "#     Failed test (t/array.t at line 19)" );
+test_err( "#     Failed test ($0 at line 19)" );
 test_test('Array functions work');
 }
