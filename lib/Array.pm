@@ -88,10 +88,14 @@ sub array_once_ok($\@;$)
 	my %seen = ();
 	foreach my $item ( @$array )
 		{
-		$seen{$_}++;
+		if ( $seen{$item}++ > 1 )
+			{
+			$Test->ok( 0, $name );
+			return;
+			}
 		}
 
-	$seen{$_} = 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
+	$Test->ok( 1, $name );
 	}
 
 =item array_multiple_ok( ITEM, ARRAY [, NAME] )
@@ -109,10 +113,10 @@ sub array_multiple_ok($\@;$)
 	my %seen = ();
 	foreach my $item ( @$array )
 		{
-		$seen{$_}++;
+		$seen{$item}++;
 		}
 
-	$seen{$_} > 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
+	$seen{$element} > 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_max_ok( NUMBER, ARRAY [, NAME] )
