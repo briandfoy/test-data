@@ -6,7 +6,7 @@ require Test::Data;
 
 Test::Data->import( qw(Scalar Array Hash Function) );
 
-my @scalar_functions = qw( blessed_ok defined_ok dualvar_ok greater_than 
+my @scalar_functions = qw( blessed_ok defined_ok greater_than 
 length_ok less_than maxlength_ok minlength_ok number_ok readonly_ok
 ref_ok ref_type_ok strong_ok tainted_ok untainted_ok weak_ok undef_ok
 number_between_ok string_between_ok );
