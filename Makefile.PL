@@ -14,7 +14,8 @@ WriteMakefile (
 		'Test::More'            => '0',
 		'File::Spec'		=> '0',
 		'File::Find'		=> '0',
-		},
+		'base'			=> '0',
+	},
  			
         'PM' => {
 		'lib/Data.pm'     => '$(INST_LIBDIR)/Data.pm',

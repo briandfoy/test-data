@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.91;
+$VERSION = 0.92;
 
 =head1 NAME
 
@@ -28,8 +28,7 @@ and values of data and variables.
 
 $Exporter::Verbose = 0;
 
-sub import
-	{
+sub import {
     my $self   = shift;
     my $caller = caller;
 
@@ -78,7 +77,7 @@ brian d foy, E<lt>bdfoy@cpan.orgE<gt>
 
 =head1 COPYRIGHT
 
-Copyright 2002, brian d foy, All Rights Reserved
+Copyright 2003, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.
