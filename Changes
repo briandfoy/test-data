@@ -1,5 +1,10 @@
 # $Id$
 
+0.96 - Thu Apr 22 15:02:25 2004
+	* functions in Test::Data::Scalar now return the result of ok()
+	rather than something else.  Thanks to Andy Lester for spotting
+	the problem
+
 0.95 - Sat Feb 28 08:09:48 2004
 	* added four functions to Test::Data::Array to check if an array 
 	is sorted (up or down, string or number)
