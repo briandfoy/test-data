@@ -1,5 +1,8 @@
 # $Id$
 
+1.17 - Tue Mar  8 17:46:44 2005
+	* Added POD coverage tests: no need to upgrade
+
 1.02 - Thu Sep  2 21:06:33 2004
 * fixed a documentation grammar bug
 * cleaned up the distro a bit and added a README
