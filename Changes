@@ -1,6 +1,8 @@
 # $Id$
 
 0.92 
+	* Fixed hash_value_false_ok(), which was never defined.
+
 	* Fixed incorrect $VERSION in each package.
 
 	* Removed requirements on Test::Manifest and Test::Prereq.

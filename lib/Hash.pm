@@ -117,7 +117,7 @@ does not create KEY in HASH.
 
 =cut
 
-sub hash_value_true_ok($\%;$)
+sub hash_value_false_ok($\%;$)
 	{
 	my $key  = shift;
 	my $hash = shift;
