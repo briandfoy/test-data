@@ -22,10 +22,10 @@ WriteMakefile
  			'Scalar::Util'          => '0',
  			'Test::Builder'         => '0',
  			'Test::Builder::Tester' => '0',
- 			'Test::Manifest'        => '0.9',
+ 			'Test::Manifest'        => '0.91',
   			'Test::More'            => '0',
-			'Test::Pod'             => '0',
- 			'Test::Prereq'          => '0.18',
+			'Test::Pod'             => '0.90',
+ 			'Test::Prereq'          => '0.19',
  			},
  			
         'PM'        => 
