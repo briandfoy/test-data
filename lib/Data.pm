@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.95;
+$VERSION = 0.96;
 
 =head1 NAME
 
@@ -53,6 +53,18 @@ sub VERSION { return $VERSION }
 
 Plug-in modules define functions for each data type.  See the
 appropriate module.
+
+=head2 How it works
+
+The Test::Data module simply emports functions from Test::Data::*
+modules.  Each module defines a self-contained function, and puts
+that function name into @EXPORT.  Test::Data defines its own 
+import function, but that does not matter to the plug-in modules.
+
+If you want to write a plug-in module, follow the example of one
+that already exists.   Name the module Test::Data::Foo, where you
+replace Foo with the right name.  Test::Data should automatically
+find it.
 
 =head1 SEE ALSO
 
