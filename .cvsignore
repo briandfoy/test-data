@@ -4,4 +4,4 @@ Test-Data-*
 blib
 Makefile
 pm_to_blib
-blibdir:wq
+blibdirs
