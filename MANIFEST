@@ -1,0 +1,13 @@
+MANIFEST
+Makefile.PL
+lib/Array.pm
+lib/Hash.pm
+lib/Scalar.pm
+lib/Function.pm
+t/load.t
+t/pod.t
+t/scalar.t
+t/array.t
+t/hash.t
+t/function.t
+t/test_manifest
