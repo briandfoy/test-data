@@ -1,5 +1,8 @@
 # $Id$
 
+0.94 - Mon Dec  1 20:57:11 CST 2003
+	* No changes.  Tests should run on Windows now.
+
 0.93 - Sat Nov 29 19:18:34 CST 2003
 	* Added new META.yml
 	* pod.t uses new Test::Pod technology.
