@@ -6,12 +6,14 @@ use Test::Manifest qw(get_t_files);
 WriteMakefile
         (
         'NAME'      => 'Test::Data',
-        'VERSION'   => '0.5',
+        'ABSTRACT'  => 'Check data type properties and values',
+        'VERSION'   => '0.5_01',
  		'PREREQ_PM' => {
- 			'Test::Pod'      => undef,
- 			'Test::Manifest' => undef,
- 			'Test::Builder'  => undef,
- 			'Test::More'     => undef,
+ 			'Test::Pod'             => undef,
+ 			'Test::Manifest'        => undef,
+ 			'Test::Builder'         => undef,
+ 			'Test::More'            => undef,
+ 			'Test::Builder::Tester' => undef,
  			},
         'PM'        => 
         	{
