@@ -1,5 +1,9 @@
 # $Id$
 
+0.9 Mon Nov  4 19:41:52 CST 2002
+	+ fixed some calls to ok() that were missing name parameter
+	+ man pages install correctly
+	
 0.8 Wed Oct 23 13:35:22 CDT 2002
 	+ all functions can take optional name arguments
 	+ added not_exists_ok, hash_value_undef_ok, hash_value_false_ok
