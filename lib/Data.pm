@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.94;
+$VERSION = 0.95;
 
 =head1 NAME
 
@@ -28,7 +28,8 @@ and values of data and variables.
 
 $Exporter::Verbose = 0;
 
-sub import {
+sub import 
+	{
     my $self   = shift;
     my $caller = caller;
 
