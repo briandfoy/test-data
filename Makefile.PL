@@ -7,13 +7,13 @@ WriteMakefile
         (
         'NAME'      => 'Test::Data',
         'ABSTRACT'  => 'Check data type properties and values',
-        'VERSION'   => '0.5_01',
+        'VERSION'   => '0.5_02',
  		'PREREQ_PM' => {
- 			'Test::Pod'             => undef,
- 			'Test::Manifest'        => undef,
- 			'Test::Builder'         => undef,
- 			'Test::More'            => undef,
- 			'Test::Builder::Tester' => undef,
+ 			'Test::Pod'             => 0,
+ 			'Test::Manifest'        => 0,
+ 			'Test::Builder'         => 0,
+ 			'Test::More'            => 0,
+ 			'Test::Builder::Tester' => 0,
  			},
         'PM'        => 
         	{
