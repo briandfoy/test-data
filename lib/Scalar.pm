@@ -15,8 +15,8 @@ use vars qw(@EXPORT $VERSION);
 $VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
 
 use Scalar::Util;
-
 use Test::Builder;
+
 my $Test = Test::Builder->new();
 
 =head1 NAME
@@ -42,7 +42,7 @@ Ok if the SCALAR is a blessed reference.
 
 =cut
 
-sub blessed_ok($;$)
+sub blessed_ok ($;$)
 	{
 	my $ref  = ref $_[0];
 	my $ok   = Scalar::Util::blessed($_[0]);
@@ -60,14 +60,14 @@ Ok if the SCALAR is defined.
 
 =cut
 
-sub defined_ok($;$)
+sub defined_ok ($;$)
 	{
 	my $ok   = defined $_[0];
 	my $name = $_[1] || 'Scalar is defined';
 
 	$Test->diag("Expected a defined value, got an undefined one\n", $name )
 		unless $ok;
-		
+
 	$Test->ok( $ok, $name );
 	}
 
@@ -77,7 +77,7 @@ Ok if the SCALAR is undefined.
 
 =cut
 
-sub undef_ok($;$)
+sub undef_ok ($;$)
 	{
 	my $name = $_[1] || 'Scalar is undefined';
 
@@ -123,7 +123,7 @@ Ok if the SCALAR is numerically greater than BOUND.
 
 =cut
 
-sub greater_than($$;$)
+sub greater_than ($$;$)
 	{
 	my $value = shift;
 	my $bound = shift;
@@ -144,7 +144,7 @@ Ok if the length of SCALAR is LENGTH.
 
 =cut
 
-sub length_ok($$;$)
+sub length_ok ($$;$)
 	{
 	my $string = shift;
 	my $length = shift;
@@ -166,7 +166,7 @@ Ok if the SCALAR is numerically less than BOUND.
 
 =cut
 
-sub less_than($$;$)
+sub less_than ($$;$)
 	{
 	my $value = shift;
 	my $bound = shift;
@@ -390,9 +390,9 @@ sub strong_ok($;$)
 
 	$Test->diag("Expected strong reference, got weak one\n")
 		unless $ok;
-	}
 
 	$Test->ok( $ok, $name );
+	}
 
 =item tainted_ok( SCALAR )
 
@@ -471,7 +471,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	http://sourceforge.net/projects/brian-d-foy/
+	https://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.

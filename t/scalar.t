@@ -18,10 +18,10 @@ foreach my $value ( [], {}, "Hello", undef, '', 1, 0 )
 	{
 	my $ref = ref $value;
 	
+	test_diag("Expected a blessed value, but didn't get it",
+		qq|\tReference type is "$ref"|,
+		"    Failed test ($0 at line " . line_num(+4) . ")",);
 	test_out('not ok 1 - Scalar is blessed');
-	test_diag("    Failed test ($0 at line " . line_num(+3) . ")",
-		"Expected a blessed value, but didn't get it",
-		qq|\tReference type is "$ref"| );
 	blessed_ok( $value );
 	test_test('blessed_ok catches non-reference');
 	}
@@ -31,10 +31,10 @@ test_out('ok 1 - Scalar is defined');
 defined_ok( "defined" );
 test_test('defined_ok');
 
+test_diag("Expected a defined value, got an undefined one",
+	"Scalar is defined",
+	"    Failed test ($0 at line " . line_num(+4) . ")",);
 test_out('not ok 1 - Scalar is defined');
-test_diag("    Failed test ($0 at line " . line_num(+3) . ")",
-	"Expected a defined value, got an undefined one",
-	"Scalar is defined");
 defined_ok( undef );
 test_test('defined_ok catches undef');
 
@@ -49,9 +49,9 @@ test_test('undef_ok');
 foreach my $value ( 'foo', '', 0, '0' )
 	{
 	my $test = 'foo';
+	test_diag("Expected an undefined value, got a defined one",
+		"    Failed test ($0 at line " . line_num(+3) . ")",);
 	test_out( 'not ok 1 - Scalar is undefined' );
-	test_diag("    Failed test ($0 at line " . line_num(+2) . ")",
-		"Expected an undefined value, got a defined one");
 	undef_ok( 'foo' );
 	test_test('undef_ok catches defined value');
 	}
@@ -63,12 +63,12 @@ foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 	greater_than( $pair->[0], $pair->[1] );
 	test_test('greater_than');
 	
-	test_out('not ok 1 - Scalar is less than bound');
-	test_diag(
-		"    Failed test ($0 at line " . line_num(+5) . ")",
-		"Number is greater than the bound.",
+	test_diag("Number is greater than the bound.",
 		"\tExpected a number less than [$$pair[1]]",
-		"\tGot [$$pair[0]]"); 
+		"\tGot [$$pair[0]]",
+		"    Failed test ($0 at line " . line_num(+6) . ")",
+		); 
+	test_out('not ok 1 - Scalar is less than bound');
 	less_than( $pair->[0], $pair->[1] );
 	test_test('less than catches out-of-bonds');
 	
@@ -76,12 +76,12 @@ foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 	less_than( $pair->[1], $pair->[0] );
 	test_test('less_than');
 
-	test_out('not ok 1 - Scalar is greater than bound');
-	test_diag(
-	    "    Failed test ($0 at line " . line_num(+5) . ")",
-		"Number is less than the bound.",
+	test_diag("Number is less than the bound.",
 		"\tExpected a number greater than [$$pair[0]]",
-		"\tGot [$$pair[1]]"); 
+		"\tGot [$$pair[1]]",
+		"    Failed test ($0 at line " . line_num(+6) . ")",
+		); 
+	test_out('not ok 1 - Scalar is greater than bound');
 	greater_than( $pair->[1], $pair->[0] );
 	test_test('greater_than catches out-of-bonds');
 	}
@@ -110,12 +110,12 @@ foreach my $string ( ( '', '123', ' ', 'Roscoe' ) )
 		{
 		next if $bad == $length;
 		
-		test_out('not ok 1 - Scalar has right length');
-		test_diag(
-			"    Failed test ($0 at line " . line_num(+5) . ")",
-			"Length of value not within bounds",
+		test_diag("Length of value not within bounds",
 			"\tExpected length=[$bad]",
-			"\tGot [$length]"); 
+			"\tGot [$length]",
+			"    Failed test ($0 at line " . line_num(+6) . ")",
+			); 
+		test_out('not ok 1 - Scalar has right length');
 		length_ok( $string, $bad );
 		test_test('length_ok catches errors');
 		}
@@ -144,11 +144,11 @@ number_between_ok( 5, 4, 6 );
 number_between_ok( 5.5, 5, 6 );
 test_test('number_between_ok');
 
-test_out( "not ok 1 - Scalar is in numerical range" );
-test_diag("    Failed test ($0 at line " . line_num(+4) . ")",
-	"Number [4] was not within bounds",
+test_diag("Number [4] was not within bounds",
 	"\tExpected lower bound [5]",
-	"\tExpected upper bound [6]");
+	"\tExpected upper bound [6]",
+	"    Failed test ($0 at line " . line_num(+5) . ")",);
+test_out( "not ok 1 - Scalar is in numerical range" );
 number_between_ok( 4, 5, 6 );
 test_test('number_between_ok catches failures');
 
@@ -161,11 +161,11 @@ string_between_ok( 'dino', 'barney', 'fred' );
 string_between_ok( 11, 1, 2 );
 test_test('string_between_ok');
 
-test_out( "not ok 1 - Scalar is in string range" );
-test_diag("    Failed test ($0 at line " . line_num(+4) . ")",
-	"String [wilma] was not within bounds",
+test_diag("String [wilma] was not within bounds",
 	"\tExpected lower bound [fred]",
-	"\tExpected upper bound [pebbles]");
+	"\tExpected upper bound [pebbles]",
+	"    Failed test ($0 at line " . line_num(+5) . ")",);
+test_out( "not ok 1 - Scalar is in string range" );
 string_between_ok( 'wilma', 'fred', 'pebbles' );
 test_test('string_between_ok catches failures');
 
