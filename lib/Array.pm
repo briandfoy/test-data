@@ -224,7 +224,7 @@ sub array_empty_ok(\@;$)
 	}
 
 
-=item array_empty_ok( ARRAY, LENGTH [, NAME] )
+=item array_length_ok( ARRAY, LENGTH [, NAME] )
 
 Ok if the array contains LENGTH number of elements.
 
@@ -385,7 +385,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002-2004, brian d foy, All Rights Reserved
+Copyright 2002-2005, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.

@@ -1,5 +1,6 @@
 load.t
 pod.t
+pod_coverage.t
 prereq.t
 import.t
 scalar.t
