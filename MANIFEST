@@ -13,6 +13,5 @@ t/hash.t
 t/import.t
 t/load.t
 t/pod.t
-t/prereq.t
 t/scalar.t
 t/test_manifest
