@@ -11,7 +11,7 @@ use Test::Builder;
 	blessed_ok defined_ok dualvar_ok greater_than length_ok 
 	less_than maxlength_ok minlength_ok number_ok 
 	readonly_ok ref_ok ref_type_ok strong_ok tainted_ok 
-	untainted_ok weak_ok 
+	untainted_ok weak_ok undef_ok
 	);
 
 my $Test = Test::Builder->new();
@@ -64,6 +64,31 @@ sub defined_ok($)
 
 	$Test->diag("Expected a defined value, got an undefined one\n")
 		unless $ok;
+	}
+
+=item undef_ok( SCALAR )
+
+Ok if the SCALAR is undefined.
+
+=cut
+
+sub undef_ok($)
+	{
+	if( @_ > 0 )
+		{
+		my $ok = not defined $_[0];
+
+		$Test->ok( $ok );
+
+		$Test->diag("Expected an undefined value, got a defined one\n")
+			unless $ok;
+		}
+	else
+		{
+		$Test->ok( 0 );
+
+		$Test->diag("Expected an undefined value, but got no arguments\n");
+		}		
 	}
 
 =item dualvar_ok( SCALAR )
