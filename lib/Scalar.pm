@@ -347,6 +347,12 @@ sub weak_ok($)
 
 =back
 
+=head1 TO DO
+
+* add is_a_filehandle test
+
+* add is_vstring test
+
 =head1 SEE ALSO
 
 L<Scalar::Util>,
