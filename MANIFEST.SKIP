@@ -1,0 +1,10 @@
+.cvsignore
+.releaserc
+pm_to_blib
+Makefile$
+Makefile.bak
+Makefile.old
+MANIFEST.bak
+CVS
+blib
+.DS_Store
