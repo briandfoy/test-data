@@ -1,6 +1,6 @@
 # $Id$
 
-use Test::Builder::Tester tests => 57;
+use Test::Builder::Tester tests => 58;
 use Test::More;
 use Test::Data qw(Scalar);
 
@@ -179,3 +179,7 @@ test_diag("    Failed test ($0 at line " . line_num(+4) . ")",
 string_between_ok( 'wilma', 'fred', 'pebbles' );
 test_test('string_between_ok catches failures');
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+test_out( map { "ok $_ - Scalar is not tainted" } 1 .. 1 );
+untainted_ok( 'Foo' );
+test_test('untainted_ok');
