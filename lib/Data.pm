@@ -15,6 +15,9 @@ use Test::Data qw(Scalar Array Hash Function);
 
 =head1 DESCRIPTION
 
+Test::Data provides utility functions to check properties 
+and values of data and variables.
+
 =cut
 
 $Exporter::Verbose = 0;
@@ -40,20 +43,8 @@ sub import
 	
 =head2 FUNCTIONS
 
-
-=over 4
-
-=item
-
-
-=cut
-
-
-
-
-
-
-=back
+Plug-in modules define functions for each data type.  See the
+appropriate module.
 
 =head1 SEE ALSO
 
