@@ -7,5 +7,5 @@ use Test::Data qw(Array);
 TODO: {
 	local $TODO = "No tests for Array yet";
 	
-	ok( 1 );
+	ok( 0 );
 	}

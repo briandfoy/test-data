@@ -7,5 +7,5 @@ use Test::Data qw(Hash);
 TODO: {
 	local $TODO = "No tests for Hash yet";
 	
-	ok( 1 );
+	ok( 0 );
 	}
