@@ -1,11 +1,17 @@
 # $Id$
 
-use Test::More tests => 1;
+use Test::Builder::Tester tests => 1;
+use Test::More;
 use Test::Data qw(Array);
 
-
-TODO: {
-	local $TODO = "No tests for Array yet";
-	
-	ok( 0 );
-	}
+{
+test_out( map "ok $_", 1 .. 6 );
+my @array = 4..6;
+array_any_ok(  5, @array );
+array_once_ok( 5, @array );
+array_none_ok( 7, @array );
+array_sum_ok( 15, @array );
+array_max_ok(  6, @array );
+array_min_ok(  3, @array );
+test_test();
+}
