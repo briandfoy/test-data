@@ -4,8 +4,10 @@ use strict;
 use base qw(Exporter);
 use vars qw(@EXPORT);
 
-@EXPORT = qw(is_any_ok is_none_ok is_once_ok is_multiple_ok 
-	is_maximum_ok is_minimum_ok);
+@EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok 
+array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok );
+
+use List::Util qw(sum min max minstr maxstr);
 
 use Test::Builder;
 my $Test = Test::Builder->new();
@@ -24,15 +26,15 @@ use Test::Data::Array;
 
 =head2 FUNCTIONS
 
-
 =over 4
 
-=item is_any_ok( ITEM, ARRAY )
+=item array_any_ok( ITEM, ARRAY )
 
+Ok is any element of ARRAY is ITEM.
 
 =cut
 
-sub is_any_ok($\@)
+sub array_any_ok($\@)
 	{
 	my $element = shift;
 	my $array   = shift;
@@ -47,12 +49,13 @@ sub is_any_ok($\@)
 	$Test->ok(0);
 	}
 	
-=item is_none_ok( ITEM, ARRAY )
+=item array_none_ok( ITEM, ARRAY )
 
+Ok is no element of ARRAY is ITEM.
 
 =cut
 
-sub is_none_ok($\@)
+sub array_none_ok($\@)
 	{
 	my $element = shift;
 	my $array   = shift;
@@ -67,12 +70,13 @@ sub is_none_ok($\@)
 	$Test->ok(1);
 	}
 
-=item is_once_ok( ITEM, ARRAY )
+=item array_once_ok( ITEM, ARRAY )
 
+Ok is only one element of ARRAY is ITEM.
 
 =cut
 
-sub is_once_ok($\@)
+sub array_once_ok($\@)
 	{
 	my $element = shift;
 	my $array   = shift;
@@ -86,12 +90,13 @@ sub is_once_ok($\@)
 	$seen{$_} = 1 ? $Test->ok(1) : $Test->ok(0);
 	}
 	
-=item is_multiple_ok( ITEM, ARRAY )
+=item array_multiple_ok( ITEM, ARRAY )
 
+Ok if more than one element of ARRAY is ITEM.
 
 =cut
 
-sub is_multiple_ok($\@)
+sub array_multiple_ok($\@)
 	{
 	my $element = shift;
 	my $array   = shift;
@@ -105,42 +110,88 @@ sub is_multiple_ok($\@)
 	$seen{$_} > 1 ? $Test->ok(1) : $Test->ok(0);
 	}
 
-=item is_maximum_ok( ITEM, ARRAY )
+=item array_max_ok( NUMBER, ARRAY )
 
+Ok is all elements of ARRAY are numerically less than
+or equal to NUMBER.
 
 =cut
 
-sub is_maximum_ok($\@)
+sub array_max_ok($\@)
 	{
-	my $element = shift;
-	my $array   = shift;
+	my $item   = shift;
+	my $array  = shift;
 	
-	my $max = $array->[0];
-	foreach my $item ( @$array[1..$#$array] )
-		{
-		$max = $item if $item > $max;
-		}
+	my $actual = max( @$array );
 		
-	$max == $element ? $Test->ok(1) : $Test->ok(0);
+	$actual <= $item ? $Test->ok(1) : $Test->ok(0);
 	}
 
-=item is_minimum_ok( ITEM, ARRAY )
+=item array_min_ok( NUMBER, ARRAY )
 
+Ok is all elements of ARRAY are numerically greater than
+or equal to NUMBER.
 
 =cut
 
-sub is_minimum_ok($\@)
+sub array_min_ok($\@)
 	{
-	my $element = shift;
-	my $array   = shift;
+	my $item   = shift;
+	my $array  = shift;
 	
-	my $min = $array->[0];
-	foreach my $item ( @$array[1..$#$array] )
-		{
-		$min = $item if $item < $min;
-		}
+	my $actual = min( @$array );
 		
-	$min == $element ? $Test->ok(1) : $Test->ok(0);
+	$actual >= $item ? $Test->ok(1) : $Test->ok(0);
+	}
+	
+=item array_maxstr_ok( ITEM, ARRAY )
+
+Ok is all elements of ARRAY are asciibetically less than
+or equal to MAX.
+
+=cut
+
+sub array_maxstr_ok($\@)
+	{
+	my $item   = shift;
+	my $array  = shift;
+	
+	my $actual = maxstr( @$array );
+		
+	$actual ge $item ? $Test->ok(1) : $Test->ok(0);
+	}
+
+=item array_minstr_ok( ITEM, ARRAY )
+
+Ok is all elements of ARRAY are asciibetically greater than
+or equal to MAX.
+
+=cut
+
+sub array_minstr_ok($\@)
+	{
+	my $item   = shift;
+	my $array  = shift;
+	
+	my $actual = minstr( @$array );
+		
+	$actual le $item ? $Test->ok(1) : $Test->ok(0);
+	}
+
+=item array_sum_ok( SUM, ARRAY )
+
+Ok is the numerical sum of ARRAY is SUM.
+
+=cut
+
+sub array_sum_ok($\@)
+	{
+	my $sum    = shift;
+	my $array  = shift;
+	
+	my $actual = sum( @$array );
+	
+	$sum == $actual ? $Test->ok(1) : $Test->ok(0);
 	}
 	
 =back
