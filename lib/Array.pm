@@ -7,6 +7,7 @@ use vars qw(@EXPORT);
 @EXPORT = qw(is_any_ok is_none_ok is_once_ok is_multiple_ok 
 	is_maximum_ok is_minimum_ok);
 
+use Test::Builder;
 my $Test = Test::Builder->new();
 
 =head1 NAME

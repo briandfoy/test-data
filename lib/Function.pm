@@ -7,6 +7,7 @@ use vars qw(@EXPORT);
 
 @EXPORT = qw(prototype_ok);
 
+use Test::Builder;
 my $Test = Test::Builder->new();
 	
 =head1 NAME

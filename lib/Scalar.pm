@@ -5,6 +5,7 @@ use base qw(Exporter);
 use vars qw(@EXPORT);
 
 use Scalar::Util;
+use Test::Builder;
 
 @EXPORT = qw(
 	blessed_ok defined_ok dualvar_ok greater_than length_ok 

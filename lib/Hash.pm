@@ -7,6 +7,7 @@ use vars qw(@EXPORT);
 
 @EXPORT = qw(exists_ok hash_value_defined_ok hash_value_true_ok);
 
+use Test::Builder;
 my $Test = Test::Builder->new();
 	
 =head1 NAME

@@ -3,6 +3,7 @@ use strict;
 
 use Carp qw(carp);
 
+use Test::Builder;
 my $Test = Test::Builder->new();
 
 =head1 NAME
