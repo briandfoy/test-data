@@ -90,16 +90,13 @@ sub array_once_ok($\@;$)
 	my $name    = shift || 'Array contains item only once';
 
 	my %seen = ();
-	foreach my $item ( @$array )
-		{
-		if ( $seen{$item}++ > 1 )
-			{
-			$Test->ok( 0, $name );
-			return;
-			}
-		}
 
-	$Test->ok( 1, $name );
+	my $ok = 0;
+	foreach my $item ( @$array ) { ++$seen{$item} }
+
+	$ok = 1 if( defined $seen{$element} and $seen{$element} == 1 );
+		
+	$Test->ok( $ok, $name );
 	}
 
 =item array_multiple_ok( ITEM, ARRAY [, NAME] )
