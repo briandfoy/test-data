@@ -3,7 +3,8 @@
 use Test::More;
 
 BEGIN { 
-    @modules = qw( Test::Data Test::Data::Array Test::Data::Function Test::Data::Hash Test::Data::Function );
+    @modules = qw( Test::Data Test::Data::Array Test::Data::Function 
+    	Test::Data::Hash Test::Data::Function );
     plan tests => @modules * 2;
     
 

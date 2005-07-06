@@ -67,6 +67,13 @@ that already exists.   Name the module Test::Data::Foo, where you
 replace Foo with the right name.  Test::Data should automatically
 find it.
 
+=head1 BUGS
+
+I'm not a very good Windows Perler, so some things don't work as
+they should on Windows. I recently got a Windows box so I can
+test things, but if you run into problems, I can use all the 
+patches or advice you care to send.
+
 =head1 SEE ALSO
 
 L<Test::Data::Scalar>,
