@@ -1,5 +1,8 @@
 # $Id$
 
+1.19 - Wed May 17 21:59:28 2006
+	* Updates for the distro and kwalitee. There's no need to upgrade.
+
 1.18 - Wed Jul  6 17:07:28 2005
 	* fixed some error messages in t/array.t. No need to upgrade it
 	you already have this module.
