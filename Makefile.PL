@@ -4,10 +4,11 @@ use ExtUtils::MakeMaker;
 eval "use Test::Manifest 1.14";
 
 WriteMakefile (
-	'NAME'           => 'Test::Data',
-	'ABSTRACT'       => 'Check data type properties and values',
-	'VERSION_FROM'   => 'lib/Data.pm',
-	'LICENSE'       => 'perl',
+	'NAME'          => 'Test::Data',
+	'ABSTRACT'      => 'Check data type properties and values',
+	'VERSION_FROM'  => 'lib/Data.pm',
+	'LICENSE'		=> 'perl',
+	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
         
 	'PREREQ_PM' => {
 		'List::Util'            => '0',
