@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
+($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 

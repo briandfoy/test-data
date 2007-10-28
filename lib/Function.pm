@@ -6,7 +6,7 @@ use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
 @EXPORT  = qw(prototype_ok);
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
+($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();

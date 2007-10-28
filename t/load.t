@@ -9,10 +9,10 @@ BEGIN {
     
 
     foreach $module ( @modules ) {
-	use_ok( $module );
-
-	my $var = '$' . $module . '::VERSION';
-	my $ver = eval $var;
-	cmp_ok( $ver, '>', 0 );
-    }
+		use_ok( $module );
+	
+		my $var = '$' . $module . '::VERSION';
+		my $ver = eval $var;
+		cmp_ok( $ver, '>', 0 );
+		}
 }

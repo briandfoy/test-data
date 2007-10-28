@@ -8,7 +8,6 @@ lib/Scalar.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
-META.yml			Module meta-data (added by MakeMaker)
 README
 t/array.t
 t/function.t

@@ -12,7 +12,8 @@ use vars qw(@EXPORT $VERSION);
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
+
+($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
 
 use Scalar::Util;
 use Test::Builder;

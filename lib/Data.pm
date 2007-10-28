@@ -10,7 +10,7 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = 1.21;
 
 =head1 NAME
 
