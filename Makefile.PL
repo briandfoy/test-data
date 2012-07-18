@@ -6,7 +6,7 @@ eval "use Test::Manifest 1.21";
 
 WriteMakefile (
 	'NAME'          => 'Test::Data',
-	'ABSTRACT'      => 'Check data type properties and values',
+	'ABSTRACT'      => 'Test data type properties and values',
 	'VERSION_FROM'  => 'lib/Test/Data.pm',
 	'LICENSE'		=> 'perl',
 	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
