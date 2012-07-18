@@ -1,5 +1,3 @@
-# $Id$
-
 use Test::Builder::Tester tests => 58;
 use Test::More;
 
