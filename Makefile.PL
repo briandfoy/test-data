@@ -18,6 +18,12 @@ WriteMakefile (
 		'Test::Builder::Tester' => '0',
 		'Test::More'            => '0.95',
 		},
+
+	META_MERGE => {
+		resources => {
+			repository => 'https://github.com/briandfoy/test-data',
+			}
+		},
 	
 	clean  => { FILES => 'Test-Data-*' },
 	);
