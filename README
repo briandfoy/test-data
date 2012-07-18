@@ -16,7 +16,7 @@ you install it).
 Before you install the module, you can look at the documentation
 directly from the module files.
 
-	perldoc lib/Data.pm
+	perldoc lib/Test/Data.pm
 	
 This module is also in CVS on SourceForge
 
