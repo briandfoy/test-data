@@ -3,6 +3,8 @@ use strict;
 
 use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
+$VERSION = '1.22';
+
 
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 	array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
@@ -10,8 +12,6 @@ use vars qw(@EXPORT $VERSION);
 	array_sortedstr_ascending_ok array_sortedstr_descending_ok
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
-
-($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 

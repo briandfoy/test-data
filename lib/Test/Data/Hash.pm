@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
 
-($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
+$VERSION = '1.22';
 
 use Test::Builder;
 my $Test = Test::Builder->new();

@@ -2,14 +2,13 @@ package Test::Data;
 use strict;
 
 use vars qw($VERSION);
+$VERSION = '1.22';
 
 use Carp qw(carp);
 
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-
-$VERSION = 1.21;
 
 =encoding utf8
 

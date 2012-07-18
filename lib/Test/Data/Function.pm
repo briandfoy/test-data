@@ -5,7 +5,7 @@ use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
 @EXPORT  = qw(prototype_ok);
-($VERSION) = q$Revision$ =~ m/ (\d+) /xg;
+$VERSION = '1.22';
 
 use Test::Builder;
 my $Test = Test::Builder->new();
