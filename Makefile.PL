@@ -16,7 +16,7 @@ WriteMakefile (
 		'Scalar::Util'          => '0',
 		'Test::Builder'         => '0',
 		'Test::Builder::Tester' => '0',
-		'Test::More'            => '0',
+		'Test::More'            => '0.95',
 		},
 	
 	clean  => { FILES => 'Test-Data-*' },
