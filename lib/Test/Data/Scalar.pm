@@ -19,6 +19,8 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
+=encoding utf8
+
 =head1 NAME
 
 Test::Data::Scalar -- test functions for scalar variables

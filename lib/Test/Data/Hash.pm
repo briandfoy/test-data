@@ -13,6 +13,8 @@ $VERSION = '1.22';
 use Test::Builder;
 my $Test = Test::Builder->new();
 
+=encoding utf8
+
 =head1 NAME
 
 Test::Data::Hash -- test functions for hash variables

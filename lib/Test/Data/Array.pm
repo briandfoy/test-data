@@ -18,6 +18,8 @@ use List::Util qw(sum min max minstr maxstr);
 use Test::Builder;
 my $Test = Test::Builder->new();
 
+=encoding utf8
+
 =head1 NAME
 
 Test::Data::Array -- test functions for array variables
