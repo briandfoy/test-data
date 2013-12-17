@@ -3,7 +3,7 @@ use strict;
 
 use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
-$VERSION = '1.22';
+$VERSION = '1.24';
 
 
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok

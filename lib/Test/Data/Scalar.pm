@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	string_between_ok
 	);
 
-$VERSION = '1.22';
+$VERSION = '1.24';
 
 use Scalar::Util;
 use Test::Builder;
