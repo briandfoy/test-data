@@ -1,5 +1,8 @@
 # $Id$
 
+1.24 - Fri Jan  3 12:20:49 2014
+	* Get rid of MYMETA
+
 1.22 - Wed Jul 18 18:06:51 2012
 	* Rearrange the modules so I don't have to specify manpage
 	locations (RT #46835)
