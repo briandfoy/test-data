@@ -1,8 +1,0 @@
-.lwpcookies
-.DS_Store
-Test-Data-*
-blib
-Makefile
-pm_to_blib
-blibdirs
-META.yml
