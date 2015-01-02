@@ -1,4 +1,4 @@
-# $Id$
+# Changes for Test::Data
 
 1.24 - Fri Jan  3 12:20:49 2014
 	* Get rid of MYMETA
@@ -25,8 +25,8 @@
 	* Added POD coverage tests: no need to upgrade
 
 1.02 - Thu Sep  2 21:06:33 2004
-* fixed a documentation grammar bug
-* cleaned up the distro a bit and added a README
+	* fixed a documentation grammar bug
+	* cleaned up the distro a bit and added a README
 * you don't need to upgrade if you already have this module
 
 1.01 - Mon May 31 01:16:58 2004
@@ -39,7 +39,7 @@
 	the problem
 
 0.95 - Sat Feb 28 08:09:48 2004
-	* added four functions to Test::Data::Array to check if an array 
+	* added four functions to Test::Data::Array to check if an array
 	is sorted (up or down, string or number)
 
 0.94 - Mon Dec  1 20:57:11 CST 2003
@@ -52,7 +52,7 @@
 	  in.  The prototype means that C<()> will get passed as a scalar,
 	  not an empty list.
 
-0.92 - Sun May 11, 2003 21:26:00 2003 
+0.92 - Sun May 11, 2003 21:26:00 2003
 	* Fixed hash_value_false_ok(), which was never defined.
 
 	* Fixed incorrect $VERSION in each package.
@@ -71,13 +71,13 @@
 	* cleaned up the Pod which had some extra whitespace in places
 
 0.9 Mon Nov  4 19:41:52 CST 2002
-	+ fixed some calls to ok() that were missing name parameter
-	+ man pages install correctly
-	
+	* fixed some calls to ok() that were missing name parameter
+	* man pages install correctly
+
 0.8 Wed Oct 23 13:35:22 CDT 2002
-	+ all functions can take optional name arguments
-	+ added not_exists_ok, hash_value_undef_ok, hash_value_false_ok
+	* all functions can take optional name arguments
+	* added not_exists_ok, hash_value_undef_ok, hash_value_false_ok
 
 0.7 Mon Sep 30 17:01:10 PDT 2002
-	+ added number_bewteen_ok, string_between_ok
-	+ added array_empty_ok, array_length_ok
+	* added number_bewteen_ok, string_between_ok
+	* added array_empty_ok, array_length_ok
