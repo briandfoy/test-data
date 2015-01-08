@@ -1,10 +1,12 @@
 require 5.008;
+
+package Test::Data;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = 'Test::Data';
+my $module    = __PACKAGE__;
 my $github    = 'https://github.com/briandfoy/test-data';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
