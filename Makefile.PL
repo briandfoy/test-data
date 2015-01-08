@@ -2,11 +2,14 @@ require 5.008;
 use strict;
 use warnings;
 
-my $github    = 'https://github.com/briandfoy/';
-my $main_file = 'lib/Test/Data.pm';
+use File::Spec::Functions qw(catfile);
+
+my $module    = 'Test::Data';
+my $github    = 'https://github.com/briandfoy/test-data';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'          => 'Test::Data',
+	'NAME'          => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'		=> 'perl',
