@@ -50,7 +50,7 @@ my %WriteMakefile = (
 			},
 		},
 	
-	clean  => { FILES => 'Test-Data-*' },
+	clean  => { FILES => "$dist-*" },
 	);
 
 
