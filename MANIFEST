@@ -1,5 +1,6 @@
 Changes
 examples/README
+INSTALL.SKIP
 lib/Test/Data.pm
 lib/Test/Data/Array.pm
 lib/Test/Data/Function.pm
