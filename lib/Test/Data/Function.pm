@@ -31,8 +31,7 @@ This module provides test functions for subroutine sorts of things.
 
 =cut
 
-sub prototype_ok(\&$;$)
-	{
+sub prototype_ok(\&$;$) {
 	my $sub        = shift;
 	my $prototype  = shift;
 	my $name       = shift || 'function prototype is correct';
@@ -40,13 +39,11 @@ sub prototype_ok(\&$;$)
 	my $actual     = prototype( $sub );
 	my $test       = $actual eq $prototype;
 
-	unless( $test )
-		{
+	unless( $test ) {
 		$Test->diag( "Subroutine has prototype [$actual]; expected [$prototype]" );
 		$Test->ok(0, $name);
 		}
-	else
-		{
+	else {
 		$Test->ok( $test, $name );
 		}
 	}

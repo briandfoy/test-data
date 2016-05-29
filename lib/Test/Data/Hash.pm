@@ -86,8 +86,7 @@ does not create KEY in HASH.
 
 =cut
 
-sub hash_value_undef_ok($\%;$)
-	{
+sub hash_value_undef_ok($\%;$) {
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is undef";
@@ -102,8 +101,7 @@ does not create KEY in HASH.
 
 =cut
 
-sub hash_value_true_ok($\%;$)
-	{
+sub hash_value_true_ok($\%;$) {
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is true";
@@ -118,8 +116,7 @@ does not create KEY in HASH.
 
 =cut
 
-sub hash_value_false_ok($\%;$)
-	{
+sub hash_value_false_ok($\%;$) {
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is false";

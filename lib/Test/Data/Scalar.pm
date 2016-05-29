@@ -43,8 +43,7 @@ Ok if the SCALAR is a blessed reference.
 
 =cut
 
-sub blessed_ok ($;$)
-	{
+sub blessed_ok ($;$) {
 	my $ref  = ref $_[0];
 	my $ok   = Scalar::Util::blessed($_[0]);
 	my $name = $_[1] || 'Scalar is blessed';
@@ -61,8 +60,7 @@ Ok if the SCALAR is defined.
 
 =cut
 
-sub defined_ok ($;$)
-	{
+sub defined_ok ($;$) {
 	my $ok   = defined $_[0];
 	my $name = $_[1] || 'Scalar is defined';
 
@@ -78,12 +76,10 @@ Ok if the SCALAR is undefined.
 
 =cut
 
-sub undef_ok ($;$)
-	{
+sub undef_ok ($;$) {
 	my $name = $_[1] || 'Scalar is undefined';
 
-	if( @_ > 0 )
-		{
+	if( @_ > 0 ) {
 		my $ok   = not defined $_[0];
 
 		$Test->diag("Expected an undefined value, got a defined one\n")
@@ -91,8 +87,7 @@ sub undef_ok ($;$)
 
 		$Test->ok( $ok, $name );
 		}
-	else
-		{
+	else {
 		$Test->diag("Expected an undefined value, but got no arguments\n");
 
 		$Test->ok( 0, $name );
@@ -124,8 +119,7 @@ Ok if the SCALAR is numerically greater than BOUND.
 
 =cut
 
-sub greater_than ($$;$)
-	{
+sub greater_than ($$;$) {
 	my $value = shift;
 	my $bound = shift;
 	my $name  = shift || 'Scalar is greater than bound';
@@ -145,8 +139,7 @@ Ok if the length of SCALAR is LENGTH.
 
 =cut
 
-sub length_ok ($$;$)
-	{
+sub length_ok ($$;$) {
 	my $string = shift;
 	my $length = shift;
 	my $name   = shift || 'Scalar has right length';
@@ -167,8 +160,7 @@ Ok if the SCALAR is numerically less than BOUND.
 
 =cut
 
-sub less_than ($$;$)
-	{
+sub less_than ($$;$) {
 	my $value = shift;
 	my $bound = shift;
 	my $name  = shift || 'Scalar is less than bound';
@@ -188,8 +180,7 @@ Ok is the length of SCALAR is less than or equal to LENGTH.
 
 =cut
 
-sub maxlength_ok($$;$)
-	{
+sub maxlength_ok($$;$) {
 	my $string = shift;
 	my $length = shift;
 	my $name   = shift || 'Scalar length is less than bound';
@@ -209,8 +200,7 @@ Ok is the length of SCALAR is greater than or equal to LENGTH.
 
 =cut
 
-sub minlength_ok($$;$)
-	{
+sub minlength_ok($$;$) {
 	my $string = shift;
 	my $length = shift;
 	my $name   = shift || 'Scalar length is greater than bound';
@@ -234,8 +224,7 @@ work.
 
 =cut
 
-sub number_ok($;$)
-	{
+sub number_ok($;$) {
 	my $number = shift;
 	my $name   = shift || 'Scalar is a number';
 
@@ -253,31 +242,26 @@ may get unexpected results.
 
 =cut
 
-sub number_between_ok($$$;$)
-	{
+sub number_between_ok($$$;$) {
 	my $number = shift;
 	my $lower  = shift;
 	my $upper  = shift;
 	my $name   = shift || 'Scalar is in numerical range';
 
-	unless( defined $lower and defined $upper )
-		{
+	unless( defined $lower and defined $upper ) {
 		$Test->diag("You need to define LOWER and UPPER bounds " .
 			"to use number_between_ok" );
 		$Test->ok( 0, $name );
 		}
-	elsif( $upper < $lower )
-		{
+	elsif( $upper < $lower ) {
 		$Test->diag(
 			"Upper bound [$upper] is lower than lower bound [$lower]" );
 		$Test->ok( 0, $name );
 		}
-	elsif( $number >= $lower and $number <= $upper )
-		{
+	elsif( $number >= $lower and $number <= $upper ) {
 		$Test->ok( 1, $name );
 		}
-	else
-		{
+	else {
 		$Test->diag( "Number [$number] was not within bounds\n",
 			"\tExpected lower bound [$lower]\n",
 			"\tExpected upper bound [$upper]\n" );
@@ -292,31 +276,26 @@ in LOWER and the string in UPPER, ASCII-betically.
 
 =cut
 
-sub string_between_ok($$$;$)
-	{
+sub string_between_ok($$$;$) {
 	my $string = shift;
 	my $lower  = shift;
 	my $upper  = shift;
 	my $name   = shift || 'Scalar is in string range';
 
-	unless( defined $lower and defined $upper )
-		{
+	unless( defined $lower and defined $upper ) {
 		$Test->diag("You need to define LOWER and UPPER bounds " .
 			"to use string_between_ok" );
 		$Test->ok( 0, $name );
 		}
-	elsif( $upper lt $lower )
-		{
+	elsif( $upper lt $lower ) {
 		$Test->diag(
 			"Upper bound [$upper] is lower than lower bound [$lower]" );
 		$Test->ok( 0, $name );
 		}
-	elsif( $string ge $lower and $string le $upper )
-		{
+	elsif( $string ge $lower and $string le $upper ) {
 		$Test->ok( 1, $name );
 		}
-	else
-		{
+	else {
 		$Test->diag( "String [$string] was not within bounds\n",
 			"\tExpected lower bound [$lower]\n",
 			"\tExpected upper bound [$upper]\n" );
@@ -331,8 +310,7 @@ Ok is the SCALAR is read-only.
 
 =cut
 
-sub readonly_ok($;$)
-	{
+sub readonly_ok($;$) {
 	my $ok   = not Scalar::Util::readonly( $_[0] );
 	my $name = $_[1] || 'Scalar is read-only';
 
@@ -348,8 +326,7 @@ Ok if the SCALAR is a reference.
 
 =cut
 
-sub ref_ok($;$)
-	{
+sub ref_ok($;$) {
 	my $ok   = ref $_[0];
 	my $name = $_[1] || 'Scalar is a reference';
 
@@ -365,8 +342,7 @@ Ok if REF1 is the same reference type as REF2.
 
 =cut
 
-sub ref_type_ok($$;$)
-	{
+sub ref_type_ok($$;$) {
 	my $ref1 = ref $_[0];
 	my $ref2 = ref $_[1];
 	my $ok = $ref1 eq $ref2;
@@ -384,8 +360,7 @@ Ok is the SCALAR is not a weak reference.
 
 =cut
 
-sub strong_ok($;$)
-	{
+sub strong_ok($;$) {
 	my $ok   = not Scalar::Util::isweak( $_[0] );
 	my $name = $_[1] || 'Scalar is not a weak reference';
 
@@ -405,8 +380,7 @@ should have a test to make sure it happens.)
 
 =cut
 
-sub tainted_ok($;$)
-	{
+sub tainted_ok($;$) {
 	my $ok   = Scalar::Util::tainted( $_[0] );
 	my $name = $_[1] || 'Scalar is tainted';
 
@@ -422,8 +396,7 @@ Ok if the SCALAR is not tainted.
 
 =cut
 
-sub untainted_ok($;$)
-	{
+sub untainted_ok($;$) {
 	my $ok = not Scalar::Util::tainted( $_[0] );
 	my $name = $_[1] || 'Scalar is not tainted';
 
@@ -439,8 +412,7 @@ Ok if the SCALAR is a weak reference.
 
 =cut
 
-sub weak_ok($;$)
-	{
+sub weak_ok($;$) {
 	my $ok = Scalar::Util::isweak( $_[0] );
 	my $name = $_[1] || 'Scalar is a weak reference';
 

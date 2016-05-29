@@ -39,14 +39,12 @@ Ok if any element of ARRAY is ITEM.
 
 =cut
 
-sub array_any_ok($\@;$)
-	{
+sub array_any_ok($\@;$) {
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array contains item';
 
-	foreach my $try ( @$array )
-		{
+	foreach my $try ( @$array ) {
 		next unless $try eq $element;
 		$Test->ok( 1, $name );
 		return;
@@ -61,14 +59,12 @@ Ok if no element of ARRAY is ITEM.
 
 =cut
 
-sub array_none_ok($\@;$)
-	{
+sub array_none_ok($\@;$) {
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array does not contain item';
 
-	foreach my $try ( @$array )
-		{
+	foreach my $try ( @$array ) {
 		next unless $try eq $element;
 		$Test->ok( 0, $name );
 		return;
@@ -83,8 +79,7 @@ Ok if only one element of ARRAY is ITEM.
 
 =cut
 
-sub array_once_ok($\@;$)
-	{
+sub array_once_ok($\@;$) {
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array contains item only once';
@@ -105,8 +100,7 @@ Ok if more than one element of ARRAY is ITEM.
 
 =cut
 
-sub array_multiple_ok($\@;$)
-	{
+sub array_multiple_ok($\@;$) {
 	my $element = shift;
 	my $array   = shift;
 	my $name    = shift || 'Array contains item at least once';
@@ -127,8 +121,7 @@ or equal to NUMBER.
 
 =cut
 
-sub array_max_ok($\@;$)
-	{
+sub array_max_ok($\@;$) {
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array maximum is okay';
@@ -145,8 +138,7 @@ or equal to NUMBER.
 
 =cut
 
-sub array_min_ok($\@;$)
-	{
+sub array_min_ok($\@;$) {
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array minimum is okay';
@@ -163,8 +155,7 @@ or equal to MAX.
 
 =cut
 
-sub array_maxstr_ok($\@;$)
-	{
+sub array_maxstr_ok($\@;$) {
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array maximum string is okay';
@@ -181,8 +172,7 @@ or equal to MAX.
 
 =cut
 
-sub array_minstr_ok($\@;$)
-	{
+sub array_minstr_ok($\@;$) {
 	my $item   = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array minimum string is okay';
@@ -198,8 +188,7 @@ Ok if the numerical sum of ARRAY is SUM.
 
 =cut
 
-sub array_sum_ok($\@;$)
-	{
+sub array_sum_ok($\@;$) {
 	my $sum    = shift;
 	my $array  = shift;
 	my $name   = shift || 'Array sum is correct';
@@ -215,8 +204,7 @@ Ok if the array contains no elements.
 
 =cut
 
-sub array_empty_ok(\@;$)
-	{
+sub array_empty_ok(\@;$) {
 	my $array = shift;
 	my $name  = shift || 'Array is empty';
 
@@ -230,8 +218,7 @@ Ok if the array contains LENGTH number of elements.
 
 =cut
 
-sub array_length_ok(\@$;$)
-	{
+sub array_length_ok(\@$;$) {
 	my $array  = shift;
 	my $length = shift;
 	my $name   = shift || 'Array length is correct';
@@ -246,45 +233,40 @@ to the one before.
 
 =cut
 
-sub array_sortedstr_ascending_ok(\@;$)
-	{
+sub array_sortedstr_ascending_ok(\@;$) {
 	my $array = shift;
 	my $name  = shift || 'Array is in ascending order';
-	
+
 	my $last_seen = 0;
-	
-	ELEMENT: foreach my $index ( 1 .. $#$array )
-		{
-		if( $array->[ $index ] ge $array->[ $index - 1 ] )
-			{
+
+	ELEMENT: foreach my $index ( 1 .. $#$array ) {
+		if( $array->[ $index ] ge $array->[ $index - 1 ] ) {
 			$last_seen = $index;
 			next;
 			}
 		last;
 		}
-		
-	$last_seen == $#$array ?  
-		$Test->ok( 1, $name ) 
-			: 
+
+	$last_seen == $#$array ?
+		$Test->ok( 1, $name )
+			:
 		$Test->ok( 0, $name );
 	}
-	
+
 =item array_sortedstr_descending_ok( ARRAY, [, NAME] )
 
 Ok if each succeeding element is asciibetically less than or equal to
-the one before. 
+the one before.
 
 =cut
 
-sub array_sortedstr_descending_ok(\@;$)
-	{
+sub array_sortedstr_descending_ok(\@;$) {
 	my $array = shift;
 	my $name  = shift || 'Array is in descending order';
-	
+
 	my $last_seen = 0;
-	
-	ELEMENT: foreach my $index ( 1 .. $#$array )
-		{
+
+	ELEMENT: foreach my $index ( 1 .. $#$array ) {
 		if( $array->[ $index ] le $array->[ $index - 1 ] )
 			{
 			$last_seen = $index;
@@ -306,59 +288,53 @@ to the one before.
 
 =cut
 
-sub array_sorted_ascending_ok(\@;$)
-	{
+sub array_sorted_ascending_ok(\@;$) {
 	my $array = shift;
 	my $name  = shift || 'Array is in ascending order';
-	
+
 	my $last_seen = 0;
-	
-	ELEMENT: foreach my $index ( 1 .. $#$array )
-		{
-		if( $array->[ $index ] >= $array->[ $index - 1 ] )
-			{
+
+	ELEMENT: foreach my $index ( 1 .. $#$array ) {
+		if( $array->[ $index ] >= $array->[ $index - 1 ] ) {
 			$last_seen = $index;
 			next;
 			}
 		last;
 		}
-		
-	$last_seen == $#$array ?  
-		$Test->ok( 1, $name ) 
-			: 
+
+	$last_seen == $#$array ?
+		$Test->ok( 1, $name )
+			:
 		$Test->ok( 0, $name );
 	}
-	
+
 =item array_sorted_descending_ok( ARRAY, [, NAME] )
 
 Ok if each succeeding element is numerically less than or equal to
-the one before. 
+the one before.
 
 =cut
 
-sub array_sorted_descending_ok(\@;$)
-	{
+sub array_sorted_descending_ok(\@;$) {
 	my $array = shift;
 	my $name  = shift || 'Array is in descending order';
-	
+
 	my $last_seen = 0;
-	
-	ELEMENT: foreach my $index ( 1 .. $#$array )
-		{
-		if( $array->[ $index ] <= $array->[ $index - 1 ] )
-			{
+
+	ELEMENT: foreach my $index ( 1 .. $#$array ) {
+		if( $array->[ $index ] <= $array->[ $index - 1 ] ) {
 			$last_seen = $index;
 			next;
 			}
 		last;
 		}
-		
-	$last_seen == $#$array ?  
-		$Test->ok( 1, $name ) 
-			: 
+
+	$last_seen == $#$array ?
+		$Test->ok( 1, $name )
+			:
 		$Test->ok( 0, $name );
 	}
-	
+
 =back
 
 =head1 SEE ALSO

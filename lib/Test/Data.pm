@@ -28,13 +28,11 @@ and values of data and variables.
 
 $Exporter::Verbose = 0;
 
-sub import 
-	{
+sub import {
     my $self   = shift;
     my $caller = caller;
 
-	foreach my $package ( @_ )
-		{
+	foreach my $package ( @_ ) {
 		my $full_package = "Test::Data::$package";
 		eval{ eval "require $full_package" };
 		if( $@ )
