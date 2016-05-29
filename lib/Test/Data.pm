@@ -54,7 +54,7 @@ appropriate module.
 
 The Test::Data module simply emports functions from Test::Data::*
 modules.  Each module defines a self-contained function, and puts
-that function name into @EXPORT.  Test::Data defines its own 
+that function name into @EXPORT.  Test::Data defines its own
 import function, but that does not matter to the plug-in modules.
 
 If you want to write a plug-in module, follow the example of one
@@ -66,7 +66,7 @@ find it.
 
 I'm not a very good Windows Perler, so some things don't work as
 they should on Windows. I recently got a Windows box so I can
-test things, but if you run into problems, I can use all the 
+test things, but if you run into problems, I can use all the
 patches or advice you care to send.
 
 =head1 SEE ALSO

@@ -7,7 +7,7 @@ our $VERSION = '1.24';
 
 our @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 	array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
-	array_length_ok array_empty_ok 
+	array_length_ok array_empty_ok
 	array_sortedstr_ascending_ok array_sortedstr_descending_ok
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
@@ -90,7 +90,7 @@ sub array_once_ok($\@;$) {
 	foreach my $item ( @$array ) { ++$seen{$item} }
 
 	$ok = 1 if( defined $seen{$element} and $seen{$element} == 1 );
-		
+
 	$Test->ok( $ok, $name );
 	}
 
@@ -274,10 +274,10 @@ sub array_sortedstr_descending_ok(\@;$) {
 			}
 		last;
 		}
-		
-	$last_seen == $#$array ?  
-		$Test->ok( 1, $name ) 
-			: 
+
+	$last_seen == $#$array ?
+		$Test->ok( 1, $name )
+			:
 		$Test->ok( 0, $name );
 	}
 
