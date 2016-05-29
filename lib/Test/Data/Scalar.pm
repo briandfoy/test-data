@@ -2,9 +2,8 @@ package Test::Data::Scalar;
 use strict;
 
 use base qw(Exporter);
-use vars qw(@EXPORT $VERSION);
 
-@EXPORT = qw(
+our @EXPORT = qw(
 	blessed_ok defined_ok dualvar_ok greater_than length_ok
 	less_than maxlength_ok minlength_ok number_ok
 	readonly_ok ref_ok ref_type_ok strong_ok tainted_ok
@@ -12,7 +11,7 @@ use vars qw(@EXPORT $VERSION);
 	string_between_ok
 	);
 
-$VERSION = '1.24';
+our $VERSION = '1.24';
 
 use Scalar::Util;
 use Test::Builder;

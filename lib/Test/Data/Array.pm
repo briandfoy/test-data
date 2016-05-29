@@ -2,11 +2,10 @@ package Test::Data::Array;
 use strict;
 
 use base qw(Exporter);
-use vars qw(@EXPORT $VERSION);
-$VERSION = '1.24';
+use Exporter qw(import export);
+our $VERSION = '1.24';
 
-
-@EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
+our @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 	array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
 	array_length_ok array_empty_ok 
 	array_sortedstr_ascending_ok array_sortedstr_descending_ok

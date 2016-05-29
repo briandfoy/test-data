@@ -2,13 +2,12 @@ package Test::Data::Hash;
 use strict;
 
 use base qw(Exporter);
-use vars qw(@EXPORT $VERSION);
 
-@EXPORT = qw(exists_ok not_exists_ok
+our @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
 
-$VERSION = '1.24';
+our $VERSION = '1.24';
 
 use Test::Builder;
 my $Test = Test::Builder->new();

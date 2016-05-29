@@ -2,10 +2,9 @@ package Test::Data::Function;
 use strict;
 
 use base qw(Exporter);
-use vars qw(@EXPORT $VERSION);
 
-@EXPORT  = qw(prototype_ok);
-$VERSION = '1.24';
+our @EXPORT  = qw(prototype_ok);
+our $VERSION = '1.24';
 
 use Test::Builder;
 my $Test = Test::Builder->new();
