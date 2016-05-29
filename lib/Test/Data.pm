@@ -47,8 +47,6 @@ sub import
 
 	}
 
-sub VERSION { return $VERSION }
-
 =head2 Functions
 
 Plug-in modules define functions for each data type.  See the
