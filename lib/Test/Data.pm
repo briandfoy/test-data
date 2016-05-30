@@ -35,8 +35,7 @@ sub import {
 	foreach my $package ( @_ ) {
 		my $full_package = "Test::Data::$package";
 		eval{ eval "require $full_package" };
-		if( $@ )
-			{
+		if( $@ ) {
 			carp "Could not require Test::Data::$package: $@";
 			}
 
