@@ -7,7 +7,8 @@ foreach $module ( @modules ) {
 	use_ok( $module );
 
 	my $var = '$' . $module . '::VERSION';
-	my $ver = eval $var;
+	my $ver = 0 + eval $var;
+	no warnings qw(numeric);
 	cmp_ok( $ver, '>', 0 );
 	}
 
