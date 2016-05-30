@@ -1,5 +1,9 @@
 Revision history for Perl module Test::Data
 
+1.24_01 2016-05-30T00:12:28Z
+	* Use Exporter appropriately (and not the bad habits in the Exporter
+	docs). This shouldn't change anything for you.
+
 1.24 - 2014-01-03
 	* Get rid of MYMETA
 
