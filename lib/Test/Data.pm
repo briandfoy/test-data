@@ -39,7 +39,7 @@ sub import {
 			carp "Could not require Test::Data::$package: $@";
 			}
 
-		$full_package->export($caller);
+		$full_package->Exporter::export($caller);
 		}
 
 	}
