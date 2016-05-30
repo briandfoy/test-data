@@ -4,7 +4,7 @@ use strict;
 use base qw(Exporter);
 
 our @EXPORT  = qw(prototype_ok);
-our $VERSION = '1.24';
+our $VERSION = '1.24_01';
 
 use Test::Builder;
 my $Test = Test::Builder->new();
