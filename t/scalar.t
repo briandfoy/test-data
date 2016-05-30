@@ -4,18 +4,16 @@ use Test::More;
 use_ok( 'Test::Data', 'Scalar' );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-foreach my $value ( [], {} )
-	{
+foreach my $value ( [], {} ) {
 	my $object = bless $value;
 	test_out('ok 1 - Scalar is blessed');
 	blessed_ok( $object );
 	test_test('blessed_ok');
 	}
 
-foreach my $value ( [], {}, "Hello", undef, '', 1, 0 )
-	{
+foreach my $value ( [], {}, "Hello", undef, '', 1, 0 ) {
 	my $ref = ref $value;
-	
+
 	test_diag("Expected a blessed value, but didn't get it",
 		qq|\tReference type is "$ref"|,
 		"    Failed test ($0 at line " . line_num(+4) . ")",);
@@ -23,7 +21,7 @@ foreach my $value ( [], {}, "Hello", undef, '', 1, 0 )
 	blessed_ok( $value );
 	test_test('blessed_ok catches non-reference');
 	}
-	
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 test_out('ok 1 - Scalar is defined');
 defined_ok( "defined" );
@@ -44,8 +42,7 @@ undef_ok( $test );
 test_test('undef_ok');
 }
 
-foreach my $value ( 'foo', '', 0, '0' )
-	{
+foreach my $value ( 'foo', '', 0, '0' ) {
 	my $test = 'foo';
 	test_diag("Expected an undefined value, got a defined one",
 		"    Failed test ($0 at line " . line_num(+3) . ")",);
@@ -55,21 +52,20 @@ foreach my $value ( 'foo', '', 0, '0' )
 	}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
-	{
+foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) ) {
 	test_out('ok 1 - Scalar is greater than bound');
 	greater_than( $pair->[0], $pair->[1] );
 	test_test('greater_than');
-	
+
 	test_diag("Number is greater than the bound.",
 		"\tExpected a number less than [$$pair[1]]",
 		"\tGot [$$pair[0]]",
 		"    Failed test ($0 at line " . line_num(+6) . ")",
-		); 
+		);
 	test_out('not ok 1 - Scalar is less than bound');
 	less_than( $pair->[0], $pair->[1] );
 	test_test('less than catches out-of-bonds');
-	
+
 	test_out('ok 1 - Scalar is less than bound');
 	less_than( $pair->[1], $pair->[0] );
 	test_test('less_than');
@@ -78,17 +74,16 @@ foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
 		"\tExpected a number greater than [$$pair[0]]",
 		"\tGot [$$pair[1]]",
 		"    Failed test ($0 at line " . line_num(+6) . ")",
-		); 
+		);
 	test_out('not ok 1 - Scalar is greater than bound');
 	greater_than( $pair->[1], $pair->[0] );
 	test_test('greater_than catches out-of-bonds');
 	}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-foreach my $string ( ( '', '123', ' ', 'Roscoe' ) )
-	{
+foreach my $string ( ( '', '123', ' ', 'Roscoe' ) ) {
 	my $length = length $string;
-	test_out( 
+	test_out(
 "ok 1 - Scalar has right length",
 "ok 2 - Scalar length is less than bound",
 "ok 3 - Scalar length is less than bound",
@@ -103,16 +98,16 @@ foreach my $string ( ( '', '123', ' ', 'Roscoe' ) )
 	minlength_ok( $string, $length - 1 );
 	minlength_ok( $string, 0 );
 	test_test('length_ok, maxlength_ok, minlength_ok');
-	
+
 	foreach my $bad ( $length - 1, $length + 1, -1, 0 )
 		{
 		next if $bad == $length;
-		
+
 		test_diag("Length of value not within bounds",
 			"\tExpected length=[$bad]",
 			"\tGot [$length]",
 			"    Failed test ($0 at line " . line_num(+6) . ")",
-			); 
+			);
 		test_out('not ok 1 - Scalar has right length');
 		length_ok( $string, $bad );
 		test_test('length_ok catches errors');
@@ -121,14 +116,13 @@ foreach my $string ( ( '', '123', ' ', 'Roscoe' ) )
 	}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-test_out( 
+test_out(
 "ok 1 - Scalar is a reference",
 "ok 2 - Scalar is not a weak reference",
 "ok 3 - Scalar is a reference",
 "ok 4 - Scalar is not a weak reference",
  );
-foreach my $value ( ( {}, [] ) )
-	{
+foreach my $value ( ( {}, [] ) ) {
 	ref_ok( $value );
 	strong_ok( $value );
 	}
