@@ -1,8 +1,7 @@
 package Test::Data::Array;
 use strict;
 
-use base qw(Exporter);
-use Exporter qw(import export);
+use Exporter qw(import);
 our $VERSION = '1.24_01';
 
 our @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok

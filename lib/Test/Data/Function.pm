@@ -1,7 +1,7 @@
 package Test::Data::Function;
 use strict;
 
-use base qw(Exporter);
+use Exporter qw(import);
 
 our @EXPORT  = qw(prototype_ok);
 our $VERSION = '1.24_01';

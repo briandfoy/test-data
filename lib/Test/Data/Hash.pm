@@ -1,7 +1,7 @@
 package Test::Data::Hash;
 use strict;
 
-use base qw(Exporter);
+use Exporter qw(import);
 
 our @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok

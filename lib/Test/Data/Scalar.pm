@@ -1,7 +1,7 @@
 package Test::Data::Scalar;
 use strict;
 
-use base qw(Exporter);
+use Exporter qw(import);
 
 our @EXPORT = qw(
 	blessed_ok defined_ok dualvar_ok greater_than length_ok
