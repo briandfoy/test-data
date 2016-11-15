@@ -1,5 +1,9 @@
 Revision history for Perl module Test::Data
 
+1.240_02 2016-11-15T14:44:43Z
+	* List all the prereqs, even the core ones. This is in anticipation
+	of a new Test::Prereq that does not filter out core modules.
+
 1.24_01 2016-05-30T00:12:28Z
 	* Use Exporter appropriately (and not the bad habits in the Exporter
 	docs). This shouldn't change anything for you.
