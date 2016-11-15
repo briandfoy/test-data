@@ -66,8 +66,11 @@ my %WriteMakefile = (
 		},
 
 	'PREREQ_PM'     => {
+		'Carp'                  => '0',
+		'Exporter'              => '0',
 		'List::Util'            => '0',
 		'Scalar::Util'          => '0',
+		'strict	'               => '0',
 		},
 
 	'META_MERGE' => {
