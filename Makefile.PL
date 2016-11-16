@@ -70,7 +70,7 @@ my %WriteMakefile = (
 		'Exporter'              => '0',
 		'List::Util'            => '0',
 		'Scalar::Util'          => '0',
-		'strict	'               => '0',
+		'strict'                => '0',
 		},
 
 	'META_MERGE' => {
