@@ -1,5 +1,9 @@
 Revision history for Perl module Test::Data
 
+1.240_02 2016-11-16T00:45:07Z
+	* Let's try harder to see why Dan Collins's testers setup 
+	doesn't like this distro.
+
 1.240_02 2016-11-15T14:44:43Z
 	* List all the prereqs, even the core ones. This is in anticipation
 	of a new Test::Prereq that does not filter out core modules.
