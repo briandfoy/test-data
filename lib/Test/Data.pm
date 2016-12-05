@@ -1,7 +1,7 @@
 package Test::Data;
 use strict;
 
-our $VERSION = '1.240_03';
+our $VERSION = '1.241';
 
 use Carp qw(carp);
 

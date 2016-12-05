@@ -11,7 +11,7 @@ our @EXPORT = qw(
 	string_between_ok
 	);
 
-our $VERSION = '1.240_03';
+our $VERSION = '1.241';
 
 use Scalar::Util;
 use Test::Builder;
