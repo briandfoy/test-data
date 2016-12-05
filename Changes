@@ -1,5 +1,8 @@
 Revision history for Perl module Test::Data
 
+1.241 2016-12-05T18:47:28Z
+	* Catch up to the latest test and perl behavior
+
 1.240_03 2016-11-23T21:21:30Z
 	* Remove the prereqs test, but, specify all the prereqs, even
 	the ones in core.
