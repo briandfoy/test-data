@@ -10,7 +10,7 @@
 
 =for HTML <a href="https://github.com/briandfoy/test-data/blob/master/LICENSE"><img src="https://img.shields.io/cpan/l/Test-Data.svg" /></a>
 
-=for HTML <a href="http://www.metacpan.org/module/Test::Data"><img src="https://img.shields.io/cpan/v/Test-Data.svg" /></A>
+=for HTML <a href="https://metacpan.org/pod/Test::Data"><img src="https://img.shields.io/cpan/v/Test-Data.svg" /></A>
 
 =head1 The Test::Data module
 
@@ -26,7 +26,7 @@ to read one again for any Perl module.
 
 To read about L<Test::Data>, look at the embedded documentation
 in the module itself. Inside the distribution, you can format it
-with L<perldoc|http://perldoc.perl.org/perldoc.html>:
+with L<perldoc|https://perldoc.perl.orgperldoc.html>:
 
 	% perldoc lib/Test/Data.pm
 
@@ -36,7 +36,7 @@ name instead of the file location:
 	% perldoc Test::Data
 
 You can read the documentation and inspect the meta data at
-L<MetaCPAN|http://www.metacpan.org/module/Test::Data>.
+L<MetaCPAN|https://metacpan.org/pod/Test::Data>.
 
 The standard module documentation has example uses in the SYNOPSIS
 section, but you can also look in the I<examples/> directory (if it's
