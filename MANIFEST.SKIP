@@ -62,3 +62,6 @@
 \.releaserc
 \.lwpcookies
 Test-.*
+\bMANIFEST\s\d
+\bChanges\s\d
+
