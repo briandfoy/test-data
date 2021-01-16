@@ -27,7 +27,8 @@ _build/
 cover_db/
 inc/
 nytprof.out
-*.icould
+*.icloud
+
 MANIFEST*[123456789]
 Changes*[123456789]
 
