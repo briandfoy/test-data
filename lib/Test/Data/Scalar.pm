@@ -102,6 +102,9 @@ Ok if the scalar is a dualvar.
 
 How do I test this?
 
+=cut
+
+
 sub dualvar_ok ($;$)
 	{
 	my $ok   = Scalar::Util::dualvar( $_[0] );
@@ -112,8 +115,6 @@ sub dualvar_ok ($;$)
 	$Test->diag("Expected a dualvar, didn't get it\n")
 		unless $ok;
 	}
-
-=cut
 
 =item greater_than( SCALAR, BOUND )
 
