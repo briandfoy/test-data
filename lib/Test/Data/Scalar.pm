@@ -104,10 +104,8 @@ How do I test this?
 
 =cut
 
-
-sub dualvar_ok ($;$)
-	{
-	my $ok   = Scalar::Util::dualvar( $_[0] );
+sub dualvar_ok ($;$) {
+	my $ok   = Scalar::Util::isdual( $_[0] );
 	my $name = $_[1] || 'Scalar is a dualvar';
 
 	$Test->ok( $ok, $name );
